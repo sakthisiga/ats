@@ -118,53 +118,7 @@ this.warning = function(msg) {
     	},3000);
     };
     
-    // ------------------------------------------------------------------------
-    
-    this.show_data = function() {
-    	$.get('../api/get_keynote', function(o){
-    		var output = '';
-    	output += '<table id="keynote_tb" class="table table-bordered">';
-    	output+= '<thead><tr  class="bg-green color-palette"><th>Name</th>';
-    	output+= '<th>Username</th>';
-    	output+= '<th>Password</th>';
-    	output+= '<th>Description/URL</th></tr></thead>';
-    		for(var i = 0; i < o.length; i++)
-    			{
-    				output += Template.article(o[i]);
-    			}
-    	output += '</table>';
-
-    		$("#list_todo").html(output);
-    	},'json');
-    	
-    };
-    
- // ------------------------------------------------------------------------
-    
-    this.search_data = function() {
-$.get('api/get_todo?option=1', function(o){
-    		
-    		var output = '';
-    	output += '<table class="table table-bordered">';
-    	output+= '<tr><th>Article ID</th>';
-    	output+= '<th>Date</th>';
-    	output+= '<th>Employee ID</th>';
-    	output+= '<th>Employee Name</th>';
-    	output+= '<th>State</th>';
-    	output+= '<th>Tool</th>';
-    	output+= '<th>Issue</th>';
-    	output+= '<th>Action</th></tr>';
-    		for(var i = 0; i < o.length; i++)
-    			{
-    				output += Template.article(o[i]);
-    			}
-    	output += '</table>';
-    		
-    		$("#list_todo").html(output);
-    	},'json');
-    	
-    };
-    
+  
     // ------------------------------------------------------------------------
     
     this.__construct();
