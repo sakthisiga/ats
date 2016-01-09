@@ -14,6 +14,7 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="<?=base_url()?>public/css/ionicons.min.css">
     <!-- Theme style -->
+    <link rel="stylesheet" href="<?=base_url()?>public/boot/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="<?=base_url()?>public/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
@@ -27,6 +28,8 @@
     <script src="<?=base_url()?>public/js/jQuery-2.1.4.min.js"></script>
     <!-- Bootstrap 3.3.5 -->
     <script src="<?=base_url()?>public/js/bootstrap.min.js"></script>
+    <script src="<?=base_url()?>public/boot/datatables/jquery.dataTables.min.js"></script>
+    <script src="<?=base_url()?>public/boot/datatables/dataTables.bootstrap.min.js"></script>
     <!-- SlimScroll -->
     <script src="<?=base_url()?>public/boot/slimScroll/jquery.slimscroll.min.js"></script>
     <!-- FastClick -->
@@ -85,7 +88,7 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Service Tax <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="<?=base_url()?>Srvtax/addClient">Add Client</a></li>
-                    <li><a href="#">View Client</a></li>
+                    <li><a href="<?=base_url()?>Srvtax/viewClient">View/Edit Client</a></li>
                     <li><a href="#">Invoice</a></li>
                     <li class="divider"></li>
                     <li><a href="#">Sample1</a></li>

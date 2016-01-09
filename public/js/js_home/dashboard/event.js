@@ -6,6 +6,7 @@ var Event = function() {
         console.log('Event Created');
         Display = new Display();
         create_client();
+        
     };
     
 // ------------------------------------------------------------------------
@@ -22,7 +23,8 @@ var Event = function() {
   	        
   	        $.post(url, postData, function(o){
   	           if(o.result == 1) {
-  	               Display.success(o.output);
+  	               
+  	             window.location.href = "viewClient?msg=success";
   	           } 
   	           else
   	           {
