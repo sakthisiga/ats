@@ -3,7 +3,7 @@ var Event = function() {
     // ------------------------------------------------------------------------
   
     this.__construct = function() {
-        console.log('Event Created');
+        //console.log('Event Created');
         Display = new Display();
         create_client();
         update_client();

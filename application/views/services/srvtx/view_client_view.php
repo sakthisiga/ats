@@ -123,7 +123,20 @@
 						    					<div class="form-group form-group-sm">
 						      						<label class="col-sm-3 control-label" for="sm">Type</label>
 						      						<div class="col-sm-8">
-						        						<input class="form-control" type="text" id="type" name="type">
+						        						<select name="type" id="type" class="form-control" placeholder="Type">
+															<option disabled selected> -- State --</option>
+																<?php foreach($types as $type) : 
+																if($row->type == $type->type)
+																{
+																	echo "<option selected>$type->type</option>";
+																}else 
+																{
+																	echo "<option>$type->type</option>";
+																}
+																	
+																endforeach;
+																?>
+														</select>
 						      						</div>
 						    					</div>
 						    					
@@ -266,8 +279,14 @@
   	     var cname = $(this).data('cname');
  	     $(".modal-body #cname").val( cname );
 
- 	     var type = $(this).data('type');
-	     $(".modal-body #type").val( type );
+ 	     var select_type = $(this).data('type');
+	     	var type = document.getElementById('type');
+		    for(var i = 0, j = type.options.length; i < j; ++i) {
+		        if(type.options[i].innerHTML === select_type) {
+		           type.selectedIndex = i;
+		           break;
+		        }
+		    }
 
 	     var cperson = $(this).data('cperson');
  	     $(".modal-body #cperson").val( cperson );

@@ -53,7 +53,12 @@
     					<div class="form-group form-group-sm">
       						<label class="col-sm-3 control-label" for="sm">Type</label>
       						<div class="col-sm-8">
-        						<input class="form-control" type="text" id="type" name="type">
+        						<select name="type" class="form-control" placeholder="Type">
+									<option disabled selected> -- Select --</option>
+										<?php foreach($types as $type) : ?>
+											<option> <?php echo $type->type; ?> </option>
+										<?php endforeach;?>
+								</select>
       						</div>
     					</div>
     					
@@ -145,17 +150,16 @@
               <button type="submit" class="btn btn-primary">Register</button>
               <button type="reset" class="btn btn-default">Reset</button>
             </div><!-- /.col -->
-            <div class="col-sm-3"></div>
+            <div class="col-sm-3">
+            <a data-toggle="modal" title="Add this item" 
+								   class="btn btn-success pull-right" 
+								   href="#myModal"><b><i 
+								   class="fa fa-plus-square"></i> Import Clients</b></a>
+            </div>
             
           </div>
           
           </form>
-           <div class="col-sm-12">
-              
-              <a data-toggle="modal" title="Add this item" 
-										class="btn btn-success pull-right" 
-										href="#myModal"><b><i class="fa fa-plus-square"></i> Import Clients</b></a>
-            </div><!-- /.col -->
             </div><!-- /.box-body -->
             <div class="box-footer">
               Here some description about the form 

@@ -201,7 +201,7 @@ class Api extends CI_Controller {
 		{
 			$this->output->set_output(json_encode([
 					'result' => '1',
-					'output' => 'Client Details Updated'
+					'output' => 'Client details updated successfully'
 			]));
 			return false;
 		}
@@ -209,7 +209,7 @@ class Api extends CI_Controller {
 		{
 			$this->output->set_output(json_encode([
 					'result' => '2',
-					'output' => 'Please update before saving changes'
+					'output' => 'No changes made, please edit any field before click the "Update" button'
 			]));
 			return false;
 		}

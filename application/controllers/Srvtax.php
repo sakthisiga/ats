@@ -24,11 +24,13 @@ class Srvtax extends CI_Controller {
 	
 	public function addClient()
 	{
+		$data['types'] = $this->srvtax_model->get_types();
 		$data['main_content'] = 'services/srvtx/add_client_view';
 		$this->load->view('inc/template_view', $data);
 	}
 	public function viewClient()
 	{
+		$data['types'] = $this->srvtax_model->get_types();
 		$data['clients'] = $this->srvtax_model->get_clients();
 		$data['main_content'] = 'services/srvtx/view_client_view';
 		$this->load->view('inc/template_view', $data);
