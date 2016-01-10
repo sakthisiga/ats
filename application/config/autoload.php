@@ -126,4 +126,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('srvtax_model');
+$autoload['model'] = array('srvtax_model','user_model');

@@ -11,6 +11,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | of this setting
 |
 */
+
+define('PASS','P@ssW0rd');
+
+
 defined('SHOW_DEBUG_BACKTRACE') OR define('SHOW_DEBUG_BACKTRACE', TRUE);
 
 /*

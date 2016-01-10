@@ -14,6 +14,131 @@ class Api extends CI_Controller {
 	
 	}
 	
+	//-------------------------------------------------------------------------------------------
+	// Function : Check User login status
+	//-------------------------------------------------------------------------------------------
+	
+	private function _require_login()
+	{
+		if($this->session->userdata('user_id') == false)
+		{
+			$this->output->set_output(json_encode(['result' => '0', 'error' => 'You are not authorized']));
+			return false;
+		}
+	}
+	
+	//-------------------------------------------------------------------------------------------
+	//Function : Login into application
+	//-------------------------------------------------------------------------------------------
+	
+	public function login()
+	{
+	
+		$this->output->set_content_type('application_json');
+	
+		$this->form_validation->set_rules('username','Username','required');
+		$this->form_validation->set_rules('password','Password','required');
+		if($this->form_validation->run() == FALSE)
+		{
+			$this->output->set_output(json_encode(['result' => '0','error' => $this->form_validation->error_array()]));
+			return false;
+		}
+	
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		$password = hash('sha256',$password.PASS);
+
+	
+		$result = $this->user_model->get($username, $password);
+	
+	
+	
+		if($result)
+		{
+			$data= $this->user_model->session_data($username);
+			foreach ($data as $rec)
+			{
+				$username = $rec->user;
+				$group = $rec->group_id;
+				$fname = $rec->fname;
+				$lname = $rec->lname;
+			}
+			$this->session->set_userdata([
+					'user' => $username,
+					'group' => $group,
+					'fname' => $fname,
+					'lname' => $lname
+			]);
+	
+			$this->output->set_output(json_encode(['result' => '1']));
+			return false;
+		}
+		else
+		{
+			$this->output->set_output(json_encode(['result' => '2', 'error' => 'Invalid Credentials. Please try with a valid credentials']));
+		}
+	
+	
+		$session = $this->session->all_userdata('user');
+		//print_r($session);
+	}
+	
+	//-------------------------------------------------------------------------------------------
+	// Function : New User Registration
+	//-------------------------------------------------------------------------------------------
+	
+	public function register()
+	{
+		$this->output->set_content_type('application_json');
+	
+		$this->form_validation->set_rules('fname','First Name','required|min_length[2]|max_length[25]');
+		$this->form_validation->set_rules('lname','Last Name','required|min_length[2]|max_length[25]');
+		$this->form_validation->set_rules('email','Email','required|valid_email|is_unique[user_tb.email]');
+		$this->form_validation->set_rules('group','Group Name','required');
+		$this->form_validation->set_rules('user','User Name','required|min_length[2]|max_length[25]|is_unique[user_tb.user]');
+		$this->form_validation->set_rules('password','Password','required|min_length[4]|max_length[20]|matches[confirm_password]');
+		$this->form_validation->set_rules('confirm_password','Confirm Password','required|min_length[4]|max_length[20]');
+	
+		if($this->form_validation->run() == FALSE)
+		{
+			$this->output->set_output(json_encode(['result' => '0','error' => $this->form_validation->error_array()]));
+			return false;
+		}
+	
+		$password = $this->input->post('password');
+
+	
+		$user_id = $this->user_model->insert([
+				'fname' => $this->input->post('fname'),
+				'lname' => $this->input->post('lname'),
+				'email' => $this->input->post('email'),
+				'group_id' => $this->input->post('group'),
+				'user' => $this->input->post('user'),
+				'pass' => hash('sha256',$password.PASS)
+		]);
+	
+	
+		if($user_id)
+		{
+			$this->session->set_userdata([
+					'user' => $this->input->post('user'),
+					'group' => $this->input->post('group'),
+					'fname' => $this->input->post('fname'),
+					'lname' => $this->input->post('lname')
+			]);
+			$this->output->set_output(json_encode(['result' => '1']));
+			return false;
+		}
+		else
+		{
+			$this->output->set_output(json_encode(['result' => '0', 'error' => 'User not Created']));
+		}
+	
+	
+		$session = $this->session->all_userdata('user_id');
+		//print_r($session);
+	}
+	
 	public function do_upload()
 	{
 		$this->gallery_path_url = realpath(APPPATH . '../files/');

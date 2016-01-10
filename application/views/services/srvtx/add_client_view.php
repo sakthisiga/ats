@@ -152,9 +152,9 @@
             </div><!-- /.col -->
             <div class="col-sm-3">
             <a data-toggle="modal" title="Add this item" 
-								   class="btn btn-success pull-right" 
-								   href="#myModal"><b><i 
-								   class="fa fa-plus-square"></i> Import Clients</b></a>
+								   class="btn btn-warning pull-right" 
+								   href="#myModal"><i 
+								   class="fa fa-plus-square"></i> Import Clients</a>
             </div>
             
           </div>

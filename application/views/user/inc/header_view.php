@@ -81,42 +81,8 @@
               </button>
             </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
-              <ul class="nav navbar-nav">
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Service Tax <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="<?=base_url()?>Srvtax/addClient">Add Client</a></li>
-                    <li><a href="<?=base_url()?>Srvtax/viewClient">View/Edit Client</a></li>
-                    <li><a href="#">Invoice</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Sample1</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Sample2</a></li>
-                  </ul>
-                </li>
-              </ul>
-
-            </div><!-- /.navbar-collapse -->
             <!-- Navbar Right Menu -->
-              <div class="navbar-custom-menu">
-                <ul class="nav navbar-nav">
-
-                  <!-- User Account Menu -->
-	                   <li class="dropdown">
-	                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?=$this->session->userdata('fname')?> <span class="caret"></span></a>
-	                  <ul class="dropdown-menu" role="menu">
-	                  <?php 
-	                  if($this->session->userdata('group') > 0) {?>
-	                  	<li><a href="<?=base_url()?>login/register">Register</a></li>
-	                  <?php }?>
-	                    <li><a href="#">Profile</a></li>
-	                    <li><a href="<?=base_url()?>login/logout">Logout</a></li>
-	                  </ul>
-	                </li>
-                 </ul>
-              </div><!-- /.navbar-custom-menu -->
+             
           </div><!-- /.container-fluid -->
         </nav>
       </header>

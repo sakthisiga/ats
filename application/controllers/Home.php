@@ -9,6 +9,16 @@ class Home extends CI_Controller {
 	 * Date: 01/07/2016
 	 */
 	
+	public function __construct() {
+		parent::__construct();
+		$user = $this->session->userdata('user');
+		if(!$user)
+		{
+			$this->logout();
+		}
+	
+	}
+	
 	public function index()
 	{
 		$this->dashboard();
@@ -19,4 +29,12 @@ class Home extends CI_Controller {
 		$data['main_content'] = 'dashboard_view';
 		$this->load->view('inc/template_view', $data);
 	}
+	
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		redirect("login");
+	}
+	
+	
 }

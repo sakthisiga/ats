@@ -12,7 +12,11 @@ class Srvtax extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->import_path = realpath(APPPATH . '../temp/data.csv');
-		
+		$user = $this->session->userdata('user');
+		if(!$user)
+		{
+			$this->logout();
+		}
 	
 	}
 	
@@ -34,6 +38,12 @@ class Srvtax extends CI_Controller {
 		$data['clients'] = $this->srvtax_model->get_clients();
 		$data['main_content'] = 'services/srvtx/view_client_view';
 		$this->load->view('inc/template_view', $data);
+	}
+	
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		redirect("login");
 	}
 	
 	
