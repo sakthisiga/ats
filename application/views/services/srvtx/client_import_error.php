@@ -1,17 +1,22 @@
 <div class="content-wrapper">
         <!-- Content Header (Page header) -->
    <section class="content">
-          <div class="row">
-          	<div class="col-md-6 col-md-offset-3">
-          		<div class="callout callout-danger">
-                    <h4>Error in File Upload</h4>
-                    <p><?php echo $error;?></p>
-                  </div>
+   
+   <div class="error-page">
+            <h2 class="headline text-red"><i class="fa fa-exclamation-circle"></i></h2>
+            <div class="error-content">
+              <h3>Oops! Error in importing the CSV data into application.</h3>
+              <p>
+                <b><?php echo $error;?></b>Please try again by click the "Import Clients" or <a href="<?=base_url()?>Srvtax/addClient">click here</a> to the Client Registration Form.
+              </p>
                  <a data-toggle="modal" title="Add this item" 
-										class="btn btn-success pull-right" 
-										href="#myModal"><b><i class="fa fa-plus-square"></i> Import Clients</b></a>
-          		</div>
-          </div>
+										class="btn btn-warning" 
+										href="#myModal"><b>Import Clients</b></a>
+            </div>
+          </div><!-- /.error-page -->
+   
+   
+         
           
            <div id="myModal" class="modal fade" role="dialog">
 				  <div class="modal-dialog modal-sm">

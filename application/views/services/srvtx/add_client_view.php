@@ -44,7 +44,7 @@
     					</div>
     					
     					<div class="form-group form-group-sm">
-      						<label class="col-sm-3 control-label" for="sm">Name</label>
+      						<label class="col-sm-3 control-label" for="sm">Firm Name</label>
       						<div class="col-sm-8">
         						<input class="form-control" type="text" id="name" name="name">
       						</div>

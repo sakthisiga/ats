@@ -8,6 +8,11 @@ class Api extends CI_Controller {
 	 * Author: Sakthivel Deivasigamani
 	 * Date: 01/07/2016
 	 */
+
+	public function index()
+	{
+	
+	}
 	
 	public function do_upload()
 	{
@@ -66,10 +71,6 @@ class Api extends CI_Controller {
 					redirect('Srvtax/viewClient?msg_import=success');
 	}
 	
-	public function index()
-	{
-		
-	}
 	
 	public function move_to_view_clients()
 	{
@@ -143,5 +144,75 @@ class Api extends CI_Controller {
 		
 		//$data['main_content'] = 'dashboard_view';
 		//$this->load->view('inc/template_view', $data);
+	}
+	
+	
+	
+	public function update_client()
+	{
+		//$this->_require_login();
+		$this->output->set_content_type('application_json');
+		 
+		$this->form_validation->set_rules('hcid','Client ID','required');
+		$this->form_validation->set_rules('cname','Company Name','required');
+		$this->form_validation->set_rules('type','Type','required');
+		//$this->form_validation->set_rules('contactperson','Contact Person','required');
+		$this->form_validation->set_rules('cnumber','Contact Number','required');
+		$this->form_validation->set_rules('email','Email','required|valid_email');
+		//$this->form_validation->set_rules('address','Address','required');
+		//$this->form_validation->set_rules('tinno','TIN No','required');
+		//$this->form_validation->set_rules('cstno','CST No','required');
+		//$this->form_validation->set_rules('panno','PAN No','required');
+		//$this->form_validation->set_rules('vatuser','VAT Username','required');
+		//$this->form_validation->set_rules('vatpass','VAT Password','required');
+		//$this->form_validation->set_rules('fileloc','File Location','required');
+		 
+		if($this->form_validation->run() == false)
+		{
+			$this->output->set_output(json_encode([
+					'result' => '0',
+					'error' => $this->form_validation->error_array()
+			]));
+			return false;
+		}
+		 
+		$cid = $this->input->post('cid');
+	
+		$this->db->where(['client_id' => $this->input->post('hcid')]);
+		$this->db->update('client_tb',[
+				'cname' => $this->input->post('cname'),
+				'type' => $this->input->post('type'),
+				'cperson' => $this->input->post('cperson'),
+				'cnumber' => $this->input->post('cnumber'),
+				'email' => $this->input->post('email'),
+				'address' => $this->input->post('address'),
+				'tin' => $this->input->post('tin'),
+				'cst' => $this->input->post('cst'),
+				'pan' => $this->input->post('pan'),
+				'vatuser' => $this->input->post('vatuser'),
+				'vatpass' => $this->input->post('vatpass'),
+				'fileloc' => $this->input->post('fileloc')
+		]);
+		 
+		$result = $this->db->affected_rows();
+		
+		 
+		if($result)
+		{
+			$this->output->set_output(json_encode([
+					'result' => '1',
+					'output' => 'Client Details Updated'
+			]));
+			return false;
+		}
+		else
+		{
+			$this->output->set_output(json_encode([
+					'result' => '2',
+					'output' => 'Please update before saving changes'
+			]));
+			return false;
+		}
+		 
 	}
 }
