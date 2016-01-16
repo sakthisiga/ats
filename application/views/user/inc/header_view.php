@@ -55,7 +55,7 @@
      		<script src="<?=base_url()?>public/js/js_home/dashboard/display.js"></script>  
         	<script src="<?=base_url()?>public/js/js_home/dashboard.js"></script>
         	
-        	
+      <link rel="shortcut icon" href="<?php echo base_url();?>public/img/favicon.png">   	
         
      <script type="text/javascript">
             //Init the Dashboard Application

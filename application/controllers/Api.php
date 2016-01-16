@@ -4,9 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Api extends CI_Controller {
 
 	/**
-	 * Home Controller and it operates for Dashboard.
+	 * API Controller and it operates for all the event operations.
 	 * Author: Sakthivel Deivasigamani
-	 * Date: 01/07/2016
+	 * Date: 01/08/2016
 	 */
 
 	public function index()
@@ -196,7 +196,6 @@ class Api extends CI_Controller {
 					redirect('Srvtax/viewClient?msg_import=success');
 	}
 	
-	
 	public function move_to_view_clients()
 	{
 		$data['clients'] = $this->srvtax_model->get_clients();
@@ -270,9 +269,7 @@ class Api extends CI_Controller {
 		//$data['main_content'] = 'dashboard_view';
 		//$this->load->view('inc/template_view', $data);
 	}
-	
-	
-	
+
 	public function update_client()
 	{
 		//$this->_require_login();
@@ -334,10 +331,11 @@ class Api extends CI_Controller {
 		{
 			$this->output->set_output(json_encode([
 					'result' => '2',
-					'output' => 'No changes made, please edit any field before click the "Update" button'
+					'output' => 'No changes made, please edit any field before clicking the "Update" button'
 			]));
 			return false;
 		}
 		 
 	}
+	
 }

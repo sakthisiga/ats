@@ -63,8 +63,9 @@
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div class="row">
-            <div class="col-xs-4">
-              <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+            <div class="col-xs-6">
+              <button type="submit" class="btn btn-primary">Register</button>
+              <button type="reset" class="btn btn-default">Reset</button>
             </div><!-- /.col -->
           </div>
         </form>

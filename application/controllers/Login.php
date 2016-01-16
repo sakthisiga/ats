@@ -3,6 +3,13 @@
 // Login Class Begins
 class Login extends CI_Controller {
 	
+	/**
+	 * Login Controller and it operates for Login, Register and Logout operations.
+	 * Author: Sakthivel Deivasigamani
+	 * Date: 01/08/2016
+	 */
+	
+	
 //-------------------------------------------------------------------------------------------
 //Function : Load Home View (Login Page)
 //-------------------------------------------------------------------------------------------
