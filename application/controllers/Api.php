@@ -14,9 +14,7 @@ class Api extends CI_Controller {
 	
 	}
 	
-	//-------------------------------------------------------------------------------------------
 	// Function : Check User login status
-	//-------------------------------------------------------------------------------------------
 	
 	private function _require_login()
 	{
@@ -27,9 +25,7 @@ class Api extends CI_Controller {
 		}
 	}
 	
-	//-------------------------------------------------------------------------------------------
 	//Function : Login into application
-	//-------------------------------------------------------------------------------------------
 	
 	public function login()
 	{
@@ -83,9 +79,7 @@ class Api extends CI_Controller {
 		//print_r($session);
 	}
 	
-	//-------------------------------------------------------------------------------------------
 	// Function : New User Registration
-	//-------------------------------------------------------------------------------------------
 	
 	public function register()
 	{
@@ -138,6 +132,8 @@ class Api extends CI_Controller {
 		$session = $this->session->all_userdata('user_id');
 		//print_r($session);
 	}
+	
+	// Function : Upload the client data csv file
 	
 	public function do_upload()
 	{
@@ -196,12 +192,16 @@ class Api extends CI_Controller {
 					redirect('Srvtax/viewClient?msg_import=success');
 	}
 	
+	// Function : View client with data from client_tb
+	
 	public function move_to_view_clients()
 	{
 		$data['clients'] = $this->srvtax_model->get_clients();
 		$data['main_content'] = 'services/srvtx/view_client_view';
 		$this->load->view('inc/template_view', $data);
 	}
+	
+	// Function : Add a New Client
 	
 	public function add_client()
 	{
@@ -270,6 +270,8 @@ class Api extends CI_Controller {
 		//$this->load->view('inc/template_view', $data);
 	}
 
+	// Function : Update an Existing Client
+	
 	public function update_client()
 	{
 		//$this->_require_login();

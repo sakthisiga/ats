@@ -7,11 +7,24 @@ var Event = function() {
         Display = new Display();
         create_client();
         update_client();
+        lead_form();
         
     };
     
 // ------------------------------------------------------------------------
-
+    var lead_form = function() {
+    /*	$('#service_others_chk').change(function(){
+    	    $("#service_others_box").prop("type","text",$(this).is(':checked'));
+    	});  */
+    	
+    	
+    	 $('#service_others_chk').click(function(){
+    		    if($(this).is(":checked"))
+    		       $("#service_others_box").prop("type","text");
+    		    else
+    		    	$("#service_others_box").prop("type","hidden");
+    		});
+    }
     
     // ------------------------------------------------------------------------
     
