@@ -21,6 +21,11 @@ class Enquiry extends CI_Controller {
 	
 	public function addLead()
 	{
+		$data['lead_info_build'] = $this->enquiry_model->get_lead_info();
+		$data['audit_job_build'] = $this->enquiry_model->get_audit_job_info();
+		$data['ags_reg_job_build'] = $this->enquiry_model->get_ags_reg_job_info();
+		$data['tech_job_build'] = $this->enquiry_model->get_tech_job_info();
+		$data['ags_legal_job_build'] = $this->enquiry_model->get_ags_legal_job_info();
 		$data['main_content'] = 'enquiry/add_lead_view';
 		$this->load->view('inc/template_view', $data);
 	}

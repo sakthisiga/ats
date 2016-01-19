@@ -20,7 +20,7 @@
 					
 				    <div class="stepwizard-row setup-panel">
 				        <div class="stepwizard-step">
-				            <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
+				            <a href="#step-1" type="button" class="btn btn-info btn-circle">1</a>
 				            <p>Lead Information</p>
 				        </div>
 				        <div class="stepwizard-step">
@@ -101,55 +101,42 @@
             </div>
          
          	 <div class="col-md-3">
-                <div class="form-group form-group-sm">
-				    <div class="checkbox">
-				       <label><input type="checkbox">New PVT Company</label>
-				    </div>
-                </div><!-- Form Group Ends -->
-                <div class="form-group form-group-sm">
-				     <div class="checkbox">
-				        <label><input type="checkbox">New OPC Company</label>
-				     </div>
-                </div><!-- Form Group Ends -->
-                <div class="form-group form-group-sm">
-				    <div class="checkbox">
-				        <label><input type="checkbox">New LLP Company</label>
-				    </div>
-                </div><!-- Form Group Ends -->
-                <div class="form-group form-group-sm">
-				    <div class="checkbox">
-				        <label><input type="checkbox">New Trust</label>
-				    </div>
-                 </div><!-- Form Group Ends -->
-                 <div class="form-group form-group-sm">
-				     <div class="checkbox">
-				        <label><input type="checkbox">Alteration of Capital</label>
-				     </div>
-                 </div><!-- Form Group Ends -->
-                  <div class="form-group form-group-sm">
-				     <div class="checkbox">
-				        <label><input type="checkbox">Consultation</label>
-				     </div>
-                 </div><!-- Form Group Ends -->
+         	 	<?php
+         	 		$i = 0;
+         	 		foreach($lead_info_build as $lib) : 
+         	 		if($i < 6)
+         	 			{
+         	 	?>
+						<div class="form-group form-group-sm">
+						    <div class="checkbox">
+						       <label><input type="checkbox" id="<?php echo $lib->lib_prop;?>" name="<?php echo $lib->lib_prop;?>"><?php echo $lib->lib_name; ?></label>
+						    </div>
+		                </div><!-- Form Group Ends -->
+				<?php 
+         	 			} 
+         	 		 $i++; 
+         	 		 endforeach;
+         	 	?>
             </div>
          
          
          	<div class="col-md-3">
-                <div class="form-group form-group-sm">
-				    <div class="checkbox">
-				       <label><input type="checkbox">Address Change</label>
-				    </div>
-                </div><!-- Form Group Ends -->
-                <div class="form-group form-group-sm">
-				     <div class="checkbox">
-				        <label><input type="checkbox">ROC Compliances</label>
-				     </div>
-                </div><!-- Form Group Ends -->
-                <div class="form-group form-group-sm">
-				    <div class="checkbox">
-				        <label><input type="checkbox">Alteration of Directors</label>
-				    </div>
-                </div><!-- Form Group Ends -->
+         	   <?php
+         	 		$i = 0;
+         	 		foreach($lead_info_build as $lib) : 
+         	 		if($i >= 6)
+         	 			{
+         	 	?>
+						<div class="form-group form-group-sm">
+						    <div class="checkbox">
+						       <label><input type="checkbox" id="<?php echo $lib->lib_prop;?>" name="<?php echo $lib->lib_prop;?>"><?php echo $lib->lib_name; ?></label>
+						    </div>
+		                </div><!-- Form Group Ends -->
+				<?php 
+         	 			} 
+         	 		 $i++; 
+         	 		 endforeach;
+         	 	?>
             </div>
            </div><!-- row -->   
            <div class="row">
@@ -170,41 +157,42 @@
 		   <div class="row">
              <div class="col-md-1"></div>
          	 <div class="col-md-4">
-                <div class="form-group form-group-sm">
-				    <div class="checkbox col-md-12">
-				       <label><input type="checkbox">Sales Tax Filing</label>
-				    </div>
-                </div><!-- Form Group Ends -->
-                <div class="form-group form-group-sm">
-				     <div class="checkbox col-md-12">
-				        <label><input type="checkbox">Service Tax Filing</label>
-				     </div>
-                </div><!-- Form Group Ends -->
-                <div class="form-group form-group-sm">
-				    <div class="checkbox col-md-12">
-				        <label><input type="checkbox">Prof Tax Filing</label>
-				    </div>
-                </div><!-- Form Group Ends -->
-                <div class="form-group form-group-sm">
-				    <div class="checkbox col-md-12">
-				        <label><input type="checkbox">TDS Filing</label>
-				    </div>
-                 </div><!-- Form Group Ends -->
-                 <div class="form-group form-group-sm">
-				    <div class="checkbox col-md-12">
-				       <label><input type="checkbox">IT Filing</label>
-				    </div>
-                </div><!-- Form Group Ends -->
+                <?php
+         	 		$i = 0;
+         	 		foreach($audit_job_build as $ajb) : 
+         	 		if($i < 5)
+         	 			{
+         	 	?>
+						<div class="form-group form-group-sm">
+						    <div class="checkbox">
+						       <label><input type="checkbox" id="<?php echo $ajb->ajb_prop;?>" name="<?php echo $ajb->ajb_prop;?>"><?php echo $ajb->ajb_name; ?></label>
+						    </div>
+		                </div><!-- Form Group Ends -->
+				<?php 
+         	 			} 
+         	 		 $i++; 
+         	 		 endforeach;
+         	 	?>
             </div>
          
          
          	<div class="col-md-3">
-                <div class="form-group form-group-sm">
-				     <div class="checkbox">
-				        <label><input type="checkbox">Consultation</label>
-				     </div>
-                </div><!-- Form Group Ends -->
-                
+               <?php
+         	 		$i = 0;
+         	 		foreach($audit_job_build as $ajb) : 
+         	 		if($i >= 5)
+         	 			{
+         	 	?>
+						<div class="form-group form-group-sm">
+						    <div class="checkbox">
+						       <label><input type="checkbox" id="<?php echo $ajb->ajb_prop;?>" name="<?php echo $ajb->ajb_prop;?>"><?php echo $ajb->ajb_name; ?></label>
+						    </div>
+		                </div><!-- Form Group Ends -->
+				<?php 
+         	 			} 
+         	 		 $i++; 
+         	 		 endforeach;
+         	 	?>
             </div>
            </div><!-- row -->   
            <div class="row">
@@ -224,55 +212,42 @@
 		   <div class="row">
              <div class="col-md-1"></div>
          	 <div class="col-md-4">
-                <div class="form-group form-group-sm">
-				    <div class="checkbox col-md-12">
-				       <label><input type="checkbox">Sales Tax Registration</label>
-				    </div>
-                </div><!-- Form Group Ends -->
-                <div class="form-group form-group-sm">
-				     <div class="checkbox col-md-12">
-				        <label><input type="checkbox">Service Tax Registration</label>
-				     </div>
-                </div><!-- Form Group Ends -->
-                <div class="form-group form-group-sm">
-				    <div class="checkbox col-md-12">
-				        <label><input type="checkbox">Prof Tax Registration</label>
-				    </div>
-                </div><!-- Form Group Ends -->
-                <div class="form-group form-group-sm">
-				    <div class="checkbox col-md-12">
-				        <label><input type="checkbox">MSME Registration</label>
-				    </div>
-                 </div><!-- Form Group Ends -->
-                  <div class="form-group form-group-sm">
-				    <div class="checkbox col-md-12">
-				        <label><input type="checkbox">Food License</label>
-				    </div>
-                 </div><!-- Form Group Ends -->                 
+                <?php
+         	 		$i = 0;
+         	 		foreach($ags_reg_job_build as $arj) : 
+         	 		if($i < 5)
+         	 			{
+         	 	?>
+						<div class="form-group form-group-sm">
+						    <div class="checkbox">
+						       <label><input type="checkbox" id="<?php echo $arj->arj_prop;?>" name="<?php echo $arj->arj_prop;?>"><?php echo $arj->arj_name; ?></label>
+						    </div>
+		                </div><!-- Form Group Ends -->
+				<?php 
+         	 			} 
+         	 		 $i++; 
+         	 		 endforeach;
+         	 	?>                
             </div>
          
          
          	<div class="col-md-3">
-         	 <div class="form-group form-group-sm">
-				    <div class="checkbox">
-				        <label><input type="checkbox">Fire License</label>
-				    </div>
-                 </div><!-- Form Group Ends -->
-                <div class="form-group form-group-sm">
-				    <div class="checkbox">
-				       <label><input type="checkbox">IE Code</label>
-				    </div>
-                </div><!-- Form Group Ends -->
-                <div class="form-group form-group-sm">
-				     <div class="checkbox">
-				        <label><input type="checkbox">Lease Deed</label>
-				     </div>
-                </div><!-- Form Group Ends -->
-                 <div class="form-group form-group-sm">
-				    <div class="checkbox">
-				        <label><input type="checkbox">Partnership Deed</label>
-				    </div>
-                 </div><!-- Form Group Ends -->
+         	   <?php
+         	 		$i = 0;
+         	 		foreach($ags_reg_job_build as $arj) : 
+         	 		if($i >= 5)
+         	 			{
+         	 	?>
+						<div class="form-group form-group-sm">
+						    <div class="checkbox">
+						       <label><input type="checkbox" id="<?php echo $arj->arj_prop;?>" name="<?php echo $arj->arj_prop;?>"><?php echo $arj->arj_name; ?></label>
+						    </div>
+		                </div><!-- Form Group Ends -->
+				<?php 
+         	 			} 
+         	 		 $i++; 
+         	 		 endforeach;
+         	 	?>              
                 
             </div>
            </div><!-- row -->   
@@ -293,41 +268,42 @@
 		   <div class="row">
              <div class="col-md-1"></div>
          	 <div class="col-md-4">
-                <div class="form-group form-group-sm">
-				    <div class="checkbox col-md-12">
-				       <label><input type="checkbox">Website</label>
-				    </div>
-                </div><!-- Form Group Ends -->
-                <div class="form-group form-group-sm">
-				     <div class="checkbox col-md-12">
-				        <label><input type="checkbox">Mail</label>
-				     </div>
-                </div><!-- Form Group Ends -->
-                <div class="form-group form-group-sm">
-				    <div class="checkbox col-md-12">
-				        <label><input type="checkbox">Logo</label>
-				    </div>
-                </div><!-- Form Group Ends -->
-                <div class="form-group form-group-sm">
-				    <div class="checkbox col-md-12">
-				        <label><input type="checkbox">Letter Pad</label>
-				    </div>
-                 </div><!-- Form Group Ends -->
-                 <div class="form-group form-group-sm">
-				    <div class="checkbox col-md-12">
-				       <label><input type="checkbox">Visiting Card</label>
-				    </div>
-                </div><!-- Form Group Ends -->
+                <?php
+         	 		$i = 0;
+         	 		foreach($tech_job_build as $tj) : 
+         	 		if($i < 5)
+         	 			{
+         	 	?>
+						<div class="form-group form-group-sm">
+						    <div class="checkbox">
+						       <label><input type="checkbox" id="<?php echo $tj->tj_prop;?>" name="<?php echo $tj->tj_prop;?>"><?php echo $tj->tj_name; ?></label>
+						    </div>
+		                </div><!-- Form Group Ends -->
+				<?php 
+         	 			} 
+         	 		 $i++; 
+         	 		 endforeach;
+         	 	?>       
             </div>
          
          
          	<div class="col-md-3">
-                <div class="form-group form-group-sm">
-				     <div class="checkbox">
-				        <label><input type="checkbox">Consultation</label>
-				     </div>
-                </div><!-- Form Group Ends -->
-                
+               <?php
+         	 		$i = 0;
+         	 		foreach($tech_job_build as $tj) : 
+         	 		if($i >= 5)
+         	 			{
+         	 	?>
+						<div class="form-group form-group-sm">
+						    <div class="checkbox">
+						       <label><input type="checkbox" id="<?php echo $tj->tj_prop;?>" name="<?php echo $tj->tj_prop;?>"><?php echo $tj->tj_name; ?></label>
+						    </div>
+		                </div><!-- Form Group Ends -->
+				<?php 
+         	 			} 
+         	 		 $i++; 
+         	 		 endforeach;
+         	 	?>       
             </div>
            </div><!-- row -->   
            <div class="row">
@@ -347,31 +323,22 @@
 		   <div class="row">
              <div class="col-md-1"></div>
          	 <div class="col-md-4">
-                <div class="form-group form-group-sm">
-				    <div class="checkbox col-md-12">
-				       <label><input type="checkbox">Trademark Registration</label>
-				    </div>
-                </div><!-- Form Group Ends -->
-                <div class="form-group form-group-sm">
-				     <div class="checkbox col-md-12">
-				        <label><input type="checkbox">Trademark Queries Reply</label>
-				     </div>
-                </div><!-- Form Group Ends -->
-                <div class="form-group form-group-sm">
-				    <div class="checkbox col-md-12">
-				        <label><input type="checkbox">Copyright</label>
-				    </div>
-                </div><!-- Form Group Ends -->
-                <div class="form-group form-group-sm">
-				    <div class="checkbox col-md-12">
-				        <label><input type="checkbox">Patent Right</label>
-				    </div>
-                 </div><!-- Form Group Ends -->
-                 <div class="form-group form-group-sm">
-				    <div class="checkbox col-md-12">
-				       <label><input type="checkbox">Consultation</label>
-				    </div>
-                </div><!-- Form Group Ends -->
+               <?php
+         	 		$i = 0;
+         	 		foreach($ags_legal_job_build as $alj) : 
+         	 		if($i < 5)
+         	 			{
+         	 	?>
+						<div class="form-group form-group-sm">
+						    <div class="checkbox">
+						       <label><input type="checkbox" id="<?php echo $alj->alj_prop;?>" name="<?php echo $alj->alj_prop;?>"><?php echo $alj->alj_name; ?></label>
+						    </div>
+		                </div><!-- Form Group Ends -->
+				<?php 
+         	 			} 
+         	 		 $i++; 
+         	 		 endforeach;
+         	 	?>    
             </div>
            </div><!-- row -->   
            <div class="row">
@@ -391,7 +358,6 @@
      </div>
 </div>
 <script>
-
 	function confirm_update() {
 		check=false;
 		output = '<div class="alert alert-danger col-md-9">';
@@ -415,12 +381,8 @@
            	 $("#show_error").fadeOut();
         	},3000);
             return false;
-        }
-
-         
-      	
-	}
-
+        }	
+   }
 </script>
 <script type="text/javascript">
 $(document).ready(function () {
@@ -438,8 +400,8 @@ $(document).ready(function () {
                 $item = $(this);
 
         if (!$item.hasClass('disabled')) {
-            navListItems.removeClass('btn-primary').addClass('btn-default');
-            $item.addClass('btn-primary');
+            navListItems.removeClass('btn-info').addClass('btn-default');
+            $item.addClass('btn-info');
             allWells.hide();
             $target.show();
             $target.find('input:eq(0)').focus();
@@ -474,6 +436,6 @@ $(document).ready(function () {
         prevStepWizard.prop("disabled","disabled").trigger('click');
     });
 
-    $('div.setup-panel div a.btn-primary').trigger('click');
+    $('div.setup-panel div a.btn-info').trigger('click');
 });
   </script>
