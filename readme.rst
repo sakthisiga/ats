@@ -3,7 +3,7 @@ Aanoor TAX Portal
 ###################
 
 Aanoor Tax Portal, an application to minimize the manual work of tracking the operations, maintaining the leads and clients, scheduled reminder for the action TBD and remind client on upcoming transaction between Aanoor and Clients as well as Clients and Govt offices.
-It helps to act quickly and response the queries in swift manner.  
+It helps to act quickly and response the queries in swift manner. 
 
 *******************
 Release Information
