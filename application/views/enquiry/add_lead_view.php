@@ -1,5 +1,5 @@
  <div class="content-wrapper">
-        <div class="container">
+        <div class="container container-main">
 	          <section class="content-header"><!-- Content Header Starts (Page header) -->
 	            <h1>
 	              <small></small>
@@ -11,11 +11,9 @@
 	          </section><!-- Content Header Ends (Page header) -->
           
 	          <section class="content"><!-- Main content ends-->
-	          <div id="show_error">
-	          
-	          </div>
-	          <div class="container">
-	           <div class="col-xs-12">
+	        
+	          <div class="container container-main">
+	           <div class="col-lg-10">
 				<div class="stepwizard">
 					
 				    <div class="stepwizard-row setup-panel">
@@ -44,13 +42,13 @@
 			  </div>
 			  
 			  
-<form id="create_lead" class="form-horizontal" method="post" action="<?=site_url('api/add_lead')?>" onsubmit="return confirm_update();">
+<form id="create_lead" class="form-horizontal col-md-7" method="post" action="<?=site_url('api/add_lead')?>" onsubmit="return confirm_update();">
     <div class="row setup-content" id="step-1">
-        <div class="col-md-8">
+        <div class="col-md-12">
           <div class="box box-solid">
 		   <div class="box-body">
 		   <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <div class="form-group form-group-sm">
 			        <label for="name1" class="formlabel control-label col-xs-3">Source</label>
 			        <div class="col-xs-8">
@@ -104,7 +102,7 @@
          	 	<?php
          	 		$i = 0;
          	 		foreach($lead_info_build as $lib) : 
-         	 		if($i < 6)
+         	 		if($i < 10)
          	 			{
          	 	?>
 						<div class="form-group form-group-sm">
@@ -124,7 +122,7 @@
          	   <?php
          	 		$i = 0;
          	 		foreach($lead_info_build as $lib) : 
-         	 		if($i >= 6)
+         	 		if($i >= 10)
          	 			{
          	 	?>
 						<div class="form-group form-group-sm">
@@ -147,11 +145,10 @@
            </div> <!-- Box Body -->
           </div><!-- Box -->
          </div> <!-- col-md-8-->
-       
-       
+
    </div>
     <div class="row setup-content" id="step-2">
-        <div class="col-md-8">
+        <div class="col-md-12">
           <div class="box box-solid">
 		   <div class="box-body">
 		   <div class="row">
@@ -180,7 +177,7 @@
                <?php
          	 		$i = 0;
          	 		foreach($audit_job_build as $ajb) : 
-         	 		if($i >= 5)
+         	 		if($i >= 5 && $i < 10)
          	 			{
          	 	?>
 						<div class="form-group form-group-sm">
@@ -194,6 +191,25 @@
          	 		 endforeach;
          	 	?>
             </div>
+            <div class="col-md-3">
+               <?php
+         	 		$i = 0;
+         	 		foreach($audit_job_build as $ajb) : 
+         	 		if($i >= 10)
+         	 			{
+         	 	?>
+						<div class="form-group form-group-sm">
+						    <div class="checkbox">
+						       <label><input type="checkbox" id="<?php echo $ajb->ajb_prop;?>" name="<?php echo $ajb->ajb_prop;?>"><?php echo $ajb->ajb_name; ?></label>
+						    </div>
+		                </div><!-- Form Group Ends -->
+				<?php 
+         	 			} 
+         	 		 $i++; 
+         	 		 endforeach;
+         	 	?>
+            </div>
+            
            </div><!-- row -->   
            <div class="row">
        	 		<div class="col-md-12">
@@ -206,7 +222,7 @@
          </div> <!-- col-md-8-->
     </div>
     <div class="row setup-content" id="step-3">
-        <div class="col-md-8">
+        <div class="col-md-12">
           <div class="box box-solid">
 		   <div class="box-body">
 		   <div class="row">
@@ -235,7 +251,7 @@
          	   <?php
          	 		$i = 0;
          	 		foreach($ags_reg_job_build as $arj) : 
-         	 		if($i >= 5)
+         	 		if($i >= 5 && $i < 10)
          	 			{
          	 	?>
 						<div class="form-group form-group-sm">
@@ -250,6 +266,27 @@
          	 	?>              
                 
             </div>
+            
+            <div class="col-md-3">
+         	   <?php
+         	 		$i = 0;
+         	 		foreach($ags_reg_job_build as $arj) : 
+         	 		if($i >= 10)
+         	 			{
+         	 	?>
+						<div class="form-group form-group-sm">
+						    <div class="checkbox">
+						       <label><input type="checkbox" id="<?php echo $arj->arj_prop;?>" name="<?php echo $arj->arj_prop;?>"><?php echo $arj->arj_name; ?></label>
+						    </div>
+		                </div><!-- Form Group Ends -->
+				<?php 
+         	 			} 
+         	 		 $i++; 
+         	 		 endforeach;
+         	 	?>              
+                
+            </div>
+            
            </div><!-- row -->   
            <div class="row">
        	 		<div class="col-md-12">
@@ -262,7 +299,7 @@
          </div> <!-- col-md-8-->
     </div>
     <div class="row setup-content" id="step-4">
-        <div class="col-md-8">
+        <div class="col-md-12">
           <div class="box box-solid">
 		   <div class="box-body">
 		   <div class="row">
@@ -291,7 +328,25 @@
                <?php
          	 		$i = 0;
          	 		foreach($tech_job_build as $tj) : 
-         	 		if($i >= 5)
+         	 		if($i >= 5 && $i < 10)
+         	 			{
+         	 	?>
+						<div class="form-group form-group-sm">
+						    <div class="checkbox">
+						       <label><input type="checkbox" id="<?php echo $tj->tj_prop;?>" name="<?php echo $tj->tj_prop;?>"><?php echo $tj->tj_name; ?></label>
+						    </div>
+		                </div><!-- Form Group Ends -->
+				<?php 
+         	 			} 
+         	 		 $i++; 
+         	 		 endforeach;
+         	 	?>       
+            </div>
+            <div class="col-md-3">
+               <?php
+         	 		$i = 0;
+         	 		foreach($tech_job_build as $tj) : 
+         	 		if($i >= 10)
          	 			{
          	 	?>
 						<div class="form-group form-group-sm">
@@ -317,7 +372,7 @@
          </div> <!-- col-md-8-->
     </div>
     <div class="row setup-content" id="step-5">
-        <div class="col-md-8">
+        <div class="col-md-12">
           <div class="box box-solid">
 		   <div class="box-body">
 		   <div class="row">
@@ -327,6 +382,24 @@
          	 		$i = 0;
          	 		foreach($ags_legal_job_build as $alj) : 
          	 		if($i < 5)
+         	 			{
+         	 	?>
+						<div class="form-group form-group-sm">
+						    <div class="checkbox">
+						       <label><input type="checkbox" id="<?php echo $alj->alj_prop;?>" name="<?php echo $alj->alj_prop;?>"><?php echo $alj->alj_name; ?></label>
+						    </div>
+		                </div><!-- Form Group Ends -->
+				<?php 
+         	 			} 
+         	 		 $i++; 
+         	 		 endforeach;
+         	 	?>    
+            </div>
+            <div class="col-md-4">
+               <?php
+         	 		$i = 0;
+         	 		foreach($ags_legal_job_build as $alj) : 
+         	 		if($i >= 5 && $i < 10)
          	 			{
          	 	?>
 						<div class="form-group form-group-sm">
@@ -353,7 +426,9 @@
          
     </div>
     </form>
-		
+		    <div class="col-md-5" id="show_error">
+		    
+		    </div>
 	     </section><!-- Main content ends-->
      </div>
 </div>
