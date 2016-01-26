@@ -42,7 +42,7 @@
 			  </div>
 			  
 			  
-<form id="create_lead" class="form-horizontal col-md-7" method="post" action="<?=site_url('api/add_lead')?>" onsubmit="return confirm_update();">
+<form id="create_lead" class="form-horizontal col-md-7" method="post" action="<?=site_url('api/add_lead')?>"">
     <div class="row setup-content" id="step-1">
         <div class="col-md-12">
           <div class="box box-solid">
@@ -52,7 +52,7 @@
                 <div class="form-group form-group-sm">
 			        <label for="name1" class="formlabel control-label col-xs-3">Source</label>
 			        <div class="col-xs-8">
-			            <select class="form-control input-sm">
+			            <select class="form-control input-sm" id="source" name="source">
 				            <option>Just Dial</option>
 				            <option>Web</option>
 				            <option>Reference</option>
@@ -62,37 +62,37 @@
                  <div class="form-group form-group-sm">
 			        <label for="name1" class="formlabel control-label col-xs-3">Name 1</label>
 			        <div class="col-xs-8">
-			            <input type="text" class="form-control input-sm" required="required" id="name1" value="sakthi">
+			            <input type="text" class="form-control input-sm" required="required" id="name1" name="name1">
 			        </div>
 			    </div>
 			    <div class="form-group form-group-sm">
 			        <label for="name2" class="formlabel control-label col-xs-3">Name 2</label>
 			        <div class="col-xs-8">
-			            <input type="text" class="form-control input-sm"  id="name2">
+			            <input type="text" class="form-control input-sm"  id="name2" name="name2">
 			        </div>
 			    </div>
 			    <div class="form-group form-group-sm">
 			        <label for="contact1" class="formlabel control-label col-xs-3">Contact #1</label>
 			        <div class="col-xs-8">
-			            <input type="text" class="form-control input-sm" required="required" value="sakthi" id="contact1">
+			            <input type="text" class="form-control input-sm" required="required" id="contact1" name="contact1">
 			        </div>
 			    </div>
 			     <div class="form-group form-group-sm">
 			        <label for="contact2" class="formlabel control-label col-xs-3">Contact #2</label>
 			        <div class="col-xs-8">
-			            <input type="text" class="form-control input-sm" id="contact2">
+			            <input type="text" class="form-control input-sm" id="contact2" name="contact2">
 			        </div>
 			    </div>
 			    <div class="form-group form-group-sm">
 			        <label for="email1" class="formlabel control-label col-xs-3">Email 1</label>
 			        <div class="col-xs-8">
-			            <input type="email" required="required" class="form-control input-sm" value="sakthi@asakthi.clom" id="email1">
+			            <input type="email" required="required" class="form-control input-sm" id="email1" name="email1">
 			        </div>
 			    </div>
 			    <div class="form-group form-group-sm">
 			        <label for="email2" class="formlabel control-label col-xs-3">Email 2</label>
 			        <div class="col-xs-8">
-			            <input type="email" class="form-control input-sm" id="email2">
+			            <input type="email" class="form-control input-sm" id="email2" name="email2">
 			        </div>
 			    </div>
                 
@@ -107,7 +107,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="<?php echo $lib->lib_prop;?>" name="<?php echo $lib->lib_prop;?>"><?php echo $lib->lib_name; ?></label>
+						       <label><input type="checkbox" id="lib" name="lib[]" value="<?php echo $lib->lib_prop;?>"><?php echo $lib->lib_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 
@@ -127,7 +127,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="<?php echo $lib->lib_prop;?>" name="<?php echo $lib->lib_prop;?>"><?php echo $lib->lib_name; ?></label>
+						       <label><input type="checkbox" id="lib" name="lib[]" value="<?php echo $lib->lib_prop;?>"><?php echo $lib->lib_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 
@@ -162,7 +162,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="<?php echo $ajb->ajb_prop;?>" name="<?php echo $ajb->ajb_prop;?>"><?php echo $ajb->ajb_name; ?></label>
+						       <label><input type="checkbox" id="ajb" name="ajb[]" value="<?php echo $ajb->ajb_prop;?>"><?php echo $ajb->ajb_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 
@@ -182,7 +182,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="<?php echo $ajb->ajb_prop;?>" name="<?php echo $ajb->ajb_prop;?>"><?php echo $ajb->ajb_name; ?></label>
+						       <label><input type="checkbox" id="ajb" name="ajb[]" value="<?php echo $ajb->ajb_prop;?>"><?php echo $ajb->ajb_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 
@@ -200,7 +200,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="<?php echo $ajb->ajb_prop;?>" name="<?php echo $ajb->ajb_prop;?>"><?php echo $ajb->ajb_name; ?></label>
+						       <label><input type="checkbox" id="ajb" name="ajb[]" value="<?php echo $ajb->ajb_prop;?>"><?php echo $ajb->ajb_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 
@@ -236,7 +236,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="<?php echo $arj->arj_prop;?>" name="<?php echo $arj->arj_prop;?>"><?php echo $arj->arj_name; ?></label>
+						       <label><input type="checkbox" id="arj" name="arj[]" value="<?php echo $arj->arj_prop;?>"><?php echo $arj->arj_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 
@@ -256,7 +256,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="<?php echo $arj->arj_prop;?>" name="<?php echo $arj->arj_prop;?>"><?php echo $arj->arj_name; ?></label>
+						       <label><input type="checkbox" id="arj" name="arj[]" value="<?php echo $arj->arj_prop;?>"><?php echo $arj->arj_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 
@@ -276,7 +276,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="<?php echo $arj->arj_prop;?>" name="<?php echo $arj->arj_prop;?>"><?php echo $arj->arj_name; ?></label>
+						       <label><input type="checkbox" id="arj" name="arj[]" value="<?php echo $arj->arj_prop;?>"><?php echo $arj->arj_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 
@@ -313,7 +313,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="<?php echo $tj->tj_prop;?>" name="<?php echo $tj->tj_prop;?>"><?php echo $tj->tj_name; ?></label>
+						       <label><input type="checkbox" id="tj" name="tj[]" value="<?php echo $tj->tj_prop;?>"><?php echo $tj->tj_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 
@@ -333,7 +333,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="<?php echo $tj->tj_prop;?>" name="<?php echo $tj->tj_prop;?>"><?php echo $tj->tj_name; ?></label>
+						       <label><input type="checkbox" id="tj" name="tj[]" value="<?php echo $tj->tj_prop;?>"><?php echo $tj->tj_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 
@@ -351,7 +351,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="<?php echo $tj->tj_prop;?>" name="<?php echo $tj->tj_prop;?>"><?php echo $tj->tj_name; ?></label>
+						       <label><input type="checkbox" id="tj" name="tj[]" value="<?php echo $tj->tj_prop;?>"><?php echo $tj->tj_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 
@@ -386,7 +386,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="<?php echo $alj->alj_prop;?>" name="<?php echo $alj->alj_prop;?>"><?php echo $alj->alj_name; ?></label>
+						       <label><input type="checkbox" id="alj" name="alj[]" value="<?php echo $alj->alj_prop;?>"><?php echo $alj->alj_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 
@@ -404,7 +404,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="<?php echo $alj->alj_prop;?>" name="<?php echo $alj->alj_prop;?>"><?php echo $alj->alj_name; ?></label>
+						       <label><input type="checkbox" id="alj" name="alj[]" value="<?php echo $alj->alj_prop;?>""><?php echo $alj->alj_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 
@@ -417,7 +417,7 @@
            <div class="row">
        	 		<div class="col-md-12">
        	 			<button class="btn btn-warning prevBtn btn-sm pull-left" type="button" >Back</button>
-       				<button class="btn btn-success btn-sm pull-right" type="submit" >Submit</button>
+       				<input type="submit" class="btn btn-success btn-sm pull-right" value="Submit the Lead">
        			</div>
        	   </div>
            </div> <!-- Box Body -->
@@ -427,38 +427,31 @@
     </div>
     </form>
 		    <div class="col-md-5" id="show_error">
-		    
+		    	<div id="notify"><!-- Error/Success/Warning Notifications go here.. --></div>
+		    	<?php 
+		          	if(isset($_SESSION["lead_id"]))
+		          	{
+		          		echo "<div class='box box-success'>";
+		          		echo "<div class='box-body'>";
+		          		echo "<form id='assign_job' method='post' action='".base_url('api/assign_job')."'>";
+		          		echo "<input type='hidden' name='lead_id' id='lead_id' value='$_SESSION[lead_id]'>";
+		          		echo "<p class='text-green'>Lead <b>LD".$_SESSION["lead_id"]."</b> has been created.</p>";
+		          		echo "<p>Do you want to assign Jobs? </p>";
+		          		echo "<input class='btn btn-success' type='submit' name='yes' id='yes' value='YES' />";
+		          		echo "<input class='btn btn-danger pull-right' data-widget='remove' type='button' name='no' id='no' value='NO' />";
+		          		echo "</form";
+		          		echo "</div>";
+		          		echo "</div>";
+		          	}
+		          	
+		          	unset($_SESSION["lead_id"]);
+		          	?>
 		    </div>
+		     	
 	     </section><!-- Main content ends-->
      </div>
 </div>
-<script>
-	function confirm_update() {
-		check=false;
-		output = '<div class="alert alert-danger col-md-9">';
-		output +='<strong>NO</strong> Job is selected, please select a job before submitting the lead';
-		output +='</div>';
-        var aCheckbox = document.getElementById('create_lead').elements;
-        for(i=0;i<aCheckbox.length;++i)
-        {
-            if(aCheckbox[i].type=='checkbox' && aCheckbox[i].checked)
-           {
-               check=true;
-           }
-         }
-         if(check==true)
-         {
-             return confirm("Do u really want to register?\n\nOK to save the lead\nCANCEL to go back to add more Jobs");
-        }
-        else{
-        	$("#show_error").html(output).fadeIn();
-        	setTimeout( function(){
-           	 $("#show_error").fadeOut();
-        	},3000);
-            return false;
-        }	
-   }
-</script>
+
 <script type="text/javascript">
 $(document).ready(function () {
 	

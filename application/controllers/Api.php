@@ -9,6 +9,10 @@ class Api extends CI_Controller {
 	 * Date: 01/08/2016
 	 */
 
+	public function __construct() {
+		parent::__construct();
+	}
+	
 	public function index()
 	{
 	
@@ -340,4 +344,111 @@ class Api extends CI_Controller {
 		 
 	}
 	
+	// Function : Update an Existing Client
+	
+	public function add_lead()
+	{
+		$this->output->set_content_type('application_json');
+	/*	$values = $this->input->post('lib');
+		echo $this->input->post('source');
+		foreach ($values as $value){
+			echo $value."<br />";
+		} 
+		
+		$lead = $this->input->post('lib');
+		$ajb1 = $this->input->post('ajb');
+		$arj1 = $this->input->post('arj');
+		$tj1 = $this->input->post('tj');
+		$alj1 = $this->input->post('alj');*/
+		if($this->input->post('lib')==true || $this->input->post('ajb')==true || $this->input->post('arj')==true || $this->input->post('tj')==true || $this->input->post('alj')==true)
+		{
+			$date = date('Y-m-d');
+			$lead_info = $this->enquiry_model->add_lead_info([
+					'date'		=> 	$date,
+					'source' 	=> 	$this->input->post('source'),
+					'name_1' 	=> 	$this->input->post('name1'),
+					'name_2' 	=> 	$this->input->post('name2'),
+					'contact_1' => 	$this->input->post('contact1'),
+					'contact_2' => 	$this->input->post('contact2'),
+					'email_1' 	=> 	$this->input->post('email1'),
+					'email_2' 	=> 	$this->input->post('email2')
+			]);
+			
+			
+				
+			if(NULL !== ($this->db->insert_id()))
+			{
+				//Loading Incorporation information into DB
+				$lib = $this->input->post('lib');
+				if( !empty($lib) ) {
+					$this->db->set('lead_id', $this->db->insert_id());
+					foreach ($lib as $value){
+						$this->db->set($value, 'Y');
+					}
+					$incorp = $this->db->insert('incorporation_tb');
+				}
+				
+				//Loading audit job information into DB
+				$ajb = $this->input->post('ajb');
+				if( !empty($ajb) ) {
+					$this->db->set('lead_id', $this->db->insert_id());
+					foreach ($ajb as $value){
+						$this->db->set($value, 'Y');
+					}
+					$audit_jobs = $this->db->insert('audit_jobs_tb');
+				}
+				
+				
+				//Loading ags registration jobs into DB 
+				$arj = $this->input->post('arj');
+				if( !empty($arj) ) {
+					$this->db->set('lead_id', $this->db->insert_id());
+					foreach ($arj as $value){
+						$this->db->set($value, 'Y');
+					}
+					$ags_reg_jobs = $this->db->insert('ags_reg_jobs_tb');
+				}
+				
+				//Loading ags registration jobs into DB
+				$tj = $this->input->post('tj');
+				if( !empty($tj) ) {
+					$this->db->set('lead_id', $this->db->insert_id());
+					foreach ($tj as $value){
+						$this->db->set($value, 'Y');
+					}
+					$tech_jobs = $this->db->insert('tech_jobs_tb');
+				}
+				
+				//Loading ags registration jobs into DB
+				$alj = $this->input->post('alj');
+				if( !empty($alj) ) {
+					$this->db->set('lead_id', $this->db->insert_id());
+					foreach ($alj as $value){
+						$this->db->set($value, 'Y');
+					}
+					$ags_legal_jobs = $this->db->insert('ags_legal_jobs_tb');
+				}
+				
+
+
+				$session_lead_id = sprintf("%010d", $this->db->insert_id());
+				$_SESSION["lead_id"] = $session_lead_id;
+				
+				$this->output->set_output(json_encode(['result' => '1']));
+			}
+		}
+		else
+		{
+			$this->output->set_output(json_encode([
+						'result' 	=> 	'0',
+						'output'	=>	'No checkbox selected'
+				]));
+		}
+	
+	}
+	
+	public function assign_job()
+	{
+		echo $this->input->post('lead_id');
+	}
 }

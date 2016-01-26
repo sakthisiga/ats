@@ -12,4 +12,11 @@ class enquiry_model extends CI_Model {
 		$query = $this->db->get($tb);
 		return $query->result();
 	}
+	
+	public function add_lead_info($data)
+	{
+		$this->db->insert('lead_info_tb',$data);
+		return $this->db->insert_id();
+	}
+	
 }
