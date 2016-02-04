@@ -31,6 +31,12 @@ class Enquiry extends CI_Controller {
 		$this->load->view('inc/template_view', $data);
 	}
 	
+	public function editLead()
+	{
+		$data['main_content'] = 'enquiry/edit_lead_view';
+		$this->load->view('inc/template_view',$data);
+	}
+	
 	public function logout()
 	{
 		$this->session->sess_destroy();

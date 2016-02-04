@@ -441,7 +441,7 @@ class Api extends CI_Controller {
 		{
 			$this->output->set_output(json_encode([
 						'result' 	=> 	'0',
-						'output'	=>	'No checkbox selected'
+						'output'	=>	'No Job is selected'
 				]));
 		}
 	

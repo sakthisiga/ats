@@ -93,7 +93,7 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Enquiry <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="<?=base_url()?>enquiry/addLead">New Lead</a></li>
-                     <li><a href="#">View/Modify Lead</a></li>
+                     <li><a href="<?=base_url()?>enquiry/editLead">View/Modify Lead</a></li>
                     <li><a href="">From Existing Customer</a></li>
                     <li class="divider"></li>
                     <li><a href="#">Allocation of Work</a></li>

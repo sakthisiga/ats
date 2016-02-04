@@ -23,7 +23,7 @@ var Event = function() {
   	        
   	        $.post(url, postData, function(o){
   	           if(o.result == 1) {
-  	        	   		window.location.href = 'addLead';
+  	        	   		window.location = 'addLead';
   	           } 
   	           else
   	           {
