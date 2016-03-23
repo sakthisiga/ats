@@ -378,6 +378,12 @@ class Api extends CI_Controller {
 				
 			if(NULL !== ($this->db->insert_id()))
 			{
+						
+
+				//Creating Session ID of Lead ID.
+				$session_lead_id = sprintf("%010d", $this->db->insert_id());
+				$_SESSION["lead_id"] = $session_lead_id;
+				
 				//Loading Incorporation information into DB
 				$lib = $this->input->post('lib');
 				if( !empty($lib) ) {
@@ -428,11 +434,6 @@ class Api extends CI_Controller {
 					}
 					$ags_legal_jobs = $this->db->insert('ags_legal_jobs_tb');
 				}
-				
-
-
-				$session_lead_id = sprintf("%010d", $this->db->insert_id());
-				$_SESSION["lead_id"] = $session_lead_id;
 				
 				$this->output->set_output(json_encode(['result' => '1']));
 			}
