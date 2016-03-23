@@ -8,16 +8,35 @@ var Event = function() {
         create_client();
         update_client();
         lead_form();
+        lead_add();
         
     };
     
+  // ------------------------------------------------------------------------
+    
+    var lead_add = function() {
+    	 $("#create_lead").submit(function(evt) {
+    		 evt.preventDefault();
+  
+  	        var url = $(this).attr('action');
+  	        var postData = $(this).serialize();
+  	        
+  	        $.post(url, postData, function(o){
+  	           if(o.result == 1) {
+  	        	   		window.location = 'addLead';
+  	           } 
+  	           else
+  	           {
+  	        	   Display.error(o.output);
+  	           }
+  	        },'json');
+	           
+    	 });
+    };
+    
+    
 // ------------------------------------------------------------------------
     var lead_form = function() {
-    /*	$('#service_others_chk').change(function(){
-    	    $("#service_others_box").prop("type","text",$(this).is(':checked'));
-    	});  */
-    	
-    	
     	 $('#service_others_chk').click(function(){
     		    if($(this).is(":checked"))
     		       $("#service_others_box").prop("type","text");
