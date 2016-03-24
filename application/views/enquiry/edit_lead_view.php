@@ -12,66 +12,36 @@
           <section class="content"><!-- Main content ends-->	        
 	         <div class="container container-main">
 	         
-	         <button id="jspanel-open" type="button" class="btn btn-info btn-sm sample">Open Metro Pop-up</button>
+	         <button id="btn1" type="button" class="btn btn-info btn-sm sample">Open Metro Pop-up</button>
 	          </div>
           </section>
        </div>
 </div>
+
 <script>
-$('#jspanel-open').click(function () {
-	"use strict";
-	$.jsPanel ({
-		addClass: {
-			header: false,
-			content: false,
-			footer: false
-		},
-		ajax: false,
-		autoclose: false,
-		bootstrap: false,
-		callback: undefined,
-		content:  false,
-		controls:  {
-			buttons:  true,
-			iconfont: false
-		},
-		draggable: {
-			handle:  'div.jsPanel-hdr, div.jsPanel-ftr',
-			stack:   '.jsPanel',
-			opacity: 0.6
-		},
-		id: function(){
-			$(this).first().uniqueId()
-		},
-		load: false,
-		paneltype: false,
-		offset: {
-			top: 0,
-			left: 0
-		},
-		overflow: 'hidden',
-		position: 'auto',
-		removeHeader: false,
-		resizable: {
-			handles: 'e, s, w, se, sw',
-			autoHide: false,
-			minWidth: 250,
-			minHeight: 93
-		},
-		rtl: false,
-		selector: 'body',
-		show: 'fadeIn',
-		size: {
-			width:  400,
-			height: 222
-		},
-		theme: 'light',
-		title: function(){
-			return 'jsMetro No ' + ($('.jsPanel').length + 1)
-		},
-		toolbarFooter: false,
-		toolbarHeader: false
-	});
+        $('#btn1').click(function(e){
+            e.preventDefault();
+           $.jsPanel({
+           		 dblclicks: {
+			        title:   "maximize"
+			    },
+
+           	 	draggable: {
+        					drag: function( event, ui ) {
+    							ui.position.top = Math.min( 10, ui.position.bottom )
+    							ui.position.bottom = Math.min( 50, ui.position.top )
+ 									 					}
+    					},
+  				maximizedMargin: {
+        			top:    60,
+        			right:  20,
+        			bottom: 50,
+        			left:   20
+    							},
+			    title:    "New Lead",
+    			size:     { width: 400, height: 200 },
+    			position: "center",
+    			theme:    "success"
 });
-</script>
-</script>      
+        });
+</script>     

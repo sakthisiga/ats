@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aanoor Tax Solutions | Portal</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -22,10 +23,13 @@
     <link rel="stylesheet" href="<?=base_url()?>public/boot/datepicker/datepicker3.css">
     <link rel="stylesheet" href="<?=base_url()?>public/boot/daterangepicker/daterangepicker-bs3.css">
         
-        
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/flick/jquery-ui.css" />
+    <link rel="stylesheet" href="<?=base_url()?>public/css/jquery.jspanel.css">
 
  <!-- jQuery 2.1.4 -->
     <script src="<?=base_url()?>public/js/jQuery-2.1.4.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+     <script src="<?=base_url()?>public/js/jquery.jspanel.js"></script>
     <!-- Bootstrap 3.3.5 -->
     <script src="<?=base_url()?>public/js/bootstrap.min.js"></script>
     <script src="<?=base_url()?>public/boot/datatables/jquery.dataTables.min.js"></script>
@@ -75,7 +79,7 @@
         <nav class="navbar navbar-static-top">
           <div class="container">
             <div class="navbar-header">
-              <a href="/ats" class="navbar-brand"><b>Aanoor</b>TAX</a>
+              <a href="/ats" class="navbar-brand"><b>Aanoor</b>TAX <small> - Dev </small></a>
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                 <i class="fa fa-bars"></i>
               </button>
