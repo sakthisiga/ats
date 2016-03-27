@@ -374,20 +374,20 @@ class Api extends CI_Controller {
 					'email_2' 	=> 	$this->input->post('email2')
 			]);
 			
-			
+			$insert_id = $this->db->insert_id();
 				
-			if(NULL !== ($this->db->insert_id()))
+			if(NULL !== ($insert_id))
 			{
 						
 
 				//Creating Session ID of Lead ID.
-				$session_lead_id = sprintf("%010d", $this->db->insert_id());
+				$session_lead_id = sprintf("%010d", $insert_id);
 				$_SESSION["lead_id"] = $session_lead_id;
 				
 				//Loading Incorporation information into DB
 				$lib = $this->input->post('lib');
 				if( !empty($lib) ) {
-					$this->db->set('lead_id', $this->db->insert_id());
+					$this->db->set('lead_id', $insert_id);
 					foreach ($lib as $value){
 						$this->db->set($value, 'Y');
 					}
@@ -397,7 +397,7 @@ class Api extends CI_Controller {
 				//Loading audit job information into DB
 				$ajb = $this->input->post('ajb');
 				if( !empty($ajb) ) {
-					$this->db->set('lead_id', $this->db->insert_id());
+					$this->db->set('lead_id', $insert_id);
 					foreach ($ajb as $value){
 						$this->db->set($value, 'Y');
 					}
@@ -408,7 +408,7 @@ class Api extends CI_Controller {
 				//Loading ags registration jobs into DB 
 				$arj = $this->input->post('arj');
 				if( !empty($arj) ) {
-					$this->db->set('lead_id', $this->db->insert_id());
+					$this->db->set('lead_id', $insert_id);
 					foreach ($arj as $value){
 						$this->db->set($value, 'Y');
 					}
@@ -418,7 +418,7 @@ class Api extends CI_Controller {
 				//Loading ags registration jobs into DB
 				$tj = $this->input->post('tj');
 				if( !empty($tj) ) {
-					$this->db->set('lead_id', $this->db->insert_id());
+					$this->db->set('lead_id', $insert_id);
 					foreach ($tj as $value){
 						$this->db->set($value, 'Y');
 					}
@@ -428,7 +428,7 @@ class Api extends CI_Controller {
 				//Loading ags registration jobs into DB
 				$alj = $this->input->post('alj');
 				if( !empty($alj) ) {
-					$this->db->set('lead_id', $this->db->insert_id());
+					$this->db->set('lead_id', $insert_id);
 					foreach ($alj as $value){
 						$this->db->set($value, 'Y');
 					}
