@@ -13,6 +13,9 @@
 	          <section class="content"><!-- Main content ends-->
 	        
 	          <div class="container container-main">
+                <div class="col-md-5" id="show_error">
+                    <div id="notify"><!-- Error/Success/Warning Notifications go here.. --></div>
+                </div>
 	           <div class="col-lg-10">
 				<div class="stepwizard">
 					
@@ -53,6 +56,7 @@
 			        <label for="name1" class="formlabel control-label col-xs-3">Source</label>
 			        <div class="col-xs-8">
 			            <select class="form-control input-sm" id="source" name="source">
+                    <option> No Source </option>
 				            <option>Just Dial</option>
 				            <option>Web</option>
 				            <option>Reference</option>
@@ -426,8 +430,28 @@
          
     </div>
     </form>
+
+    <!-- On Screen selection display -->
+
+        <div class="col-lg-4">
+            <div class="panel panel-primary">
+                  <div class="panel-heading">
+                    <i class="fa fa-th-list"></i> <b> Summary of Selection</b>
+                  </div>
+                  <!-- /.panel-heading -->
+                  <div class="panel-body">
+                        <div class="list-group display_lead">
+                         <!-- Display the summary of selection -->
+                        </div>
+                  </div>
+
+                  <!-- /.panel-body -->
+            </div>
+            <!-- /.panel .chat-panel -->
+        </div>
+
+    <!-- Display LEAD ID creation -->
 		    <div class="col-md-5" id="show_error">
-		    	<div id="notify"><!-- Error/Success/Warning Notifications go here.. --></div>
 		    	<?php 
 		          	if(isset($_SESSION["lead_id"]))
 		          	{
@@ -445,12 +469,116 @@
 		          	}
 		          	
 		          	unset($_SESSION["lead_id"]);
-		          	?>
+		      ?>
 		    </div>
-		     	
 	     </section><!-- Main content ends-->
      </div>
 </div>
+
+<script>
+   $(document).change(function () {  
+          
+          var output="";
+          //Lead Information Section - Col1
+          if ($('input:text').val().length != 0) {
+                output += '<h5><p class="text-success"><b>Lead Information:</b></p></h5>';
+                var lead_list = [ "source", "name1", "name2", "contact1", "contact2", "email1", "email2"];
+                jQuery.each( lead_list, function( i, val ) {
+                  if($('#' + val).val()) 
+                  {
+                     output += '<a href="#" class="list-group-item"><b>';
+                     output += val.toUpperCase();
+                     output += '</b><span class="pull-right text-muted">';
+                     output += $('#' + val).val();
+                     output += '</span></a>';
+                  }
+                });
+          }
+
+        if($('input[name="lib[]"]:checked').length > 0)
+        {
+           output += '<h5><p class="text-danger"><b>Company Registrations:</b></p></h5>';
+           output += '<a href="#" class="list-group-item">';
+            $('input:checkbox[id=lib]:checked').each(function() 
+              {                 
+                 var str = $(this).val();
+                 str = str.replace("_"," ");
+                 str = str.replace("_"," ");
+                 output += '<span class="pull-right">';
+                 output += str.toUpperCase();
+                 output += '</span><br>';
+              });             
+             output += '</a>';
+        }
+        if($('input[name="ajb[]"]:checked').length > 0)
+        {
+           output += '<h5><p class="text-primary"><b>Audit Jobs:</b></p></h5>';
+           output += '<a href="#" class="list-group-item">';
+            $('input:checkbox[id=ajb]:checked').each(function() 
+              {                 
+                 var str = $(this).val();
+                 str = str.replace("_"," ");
+                 str = str.replace("_"," ");
+                 output += '<span class="pull-right">';
+                 output += str.toUpperCase();
+                 output += '</span><br>';
+              });             
+             output += '</a>';
+        }
+
+        if($('input[name="arj[]"]:checked').length > 0)
+        {
+           output += '<h5><p class="text-inverse"><b>AGS Registration Jobs:</b></p></h5>';
+           output += '<a href="#" class="list-group-item">';
+            $('input:checkbox[id=arj]:checked').each(function() 
+              {                 
+                 var str = $(this).val();
+                 str = str.replace("_"," ");
+                 str = str.replace("_"," ");
+                 output += '<span class="pull-right">';
+                 output += str.toUpperCase();
+                 output += '</span><br>';
+              });             
+             output += '</a>';
+        }
+
+        if($('input[name="tj[]"]:checked').length > 0)
+        {
+           output += '<h5><p class="text-success"><b>Technology Jobs:</b></p></h5>';
+           output += '<a href="#" class="list-group-item">';
+            $('input:checkbox[id=tj]:checked').each(function() 
+              {                 
+                 var str = $(this).val();
+                 str = str.replace("_"," ");
+                 str = str.replace("_"," ");
+                 output += '<span class="pull-right">';
+                 output += str.toUpperCase();
+                 output += '</span><br>';
+              });             
+             output += '</a>';
+        }
+
+        if($('input[name="alj[]"]:checked').length > 0)
+        {
+           output += '<h5><p class="text-warning"><b>AGS Legal Jobs:</b></p></h5>';
+           output += '<a href="#" class="list-group-item">';
+            $('input:checkbox[id=alj]:checked').each(function() 
+              {                 
+                 var str = $(this).val();
+                 str = str.replace("_"," ");
+                 str = str.replace("_"," ");
+                 output += '<span class="pull-right">';
+                 output += str.toUpperCase();
+                 output += '</span><br>';
+              });             
+             output += '</a>';
+        }
+
+
+        $('.display_lead').html(output);
+    });
+</script>
+
 
 <script type="text/javascript">
 $(document).ready(function () {

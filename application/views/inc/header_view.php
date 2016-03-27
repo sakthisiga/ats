@@ -10,7 +10,7 @@
     
  <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="<?=base_url()?>public/css/bootstrap.min.css">
-   <link rel="stylesheet" href="<?=base_url()?>public/css/bootstrap-wizard.css">
+  <!-- <link rel="stylesheet" href="<?=base_url()?>public/css/bootstrap-wizard.css"> -->
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?=base_url()?>public/css/font-awesome.min.css">
     <!-- Ionicons -->
@@ -35,7 +35,7 @@
     <script src="<?=base_url()?>public/js/jquery.jspanel.js"></script>
     <!-- Bootstrap 3.3.5 -->
     <script src="<?=base_url()?>public/js/bootstrap.min.js"></script>
-   <script src="<?=base_url()?>public/js/sliding.form.js"></script>
+  <!--  <script src="<?=base_url()?>public/js/sliding.form.js"></script> -->
     <script src="<?=base_url()?>public/boot/datatables/jquery.dataTables.min.js"></script>
     <script src="<?=base_url()?>public/boot/datatables/dataTables.bootstrap.min.js"></script>
     <!-- SlimScroll -->
