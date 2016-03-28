@@ -317,7 +317,7 @@
 
  	     var fileloc = $(this).data('fileloc');
  	     $(".modal-body #fileloc").val( fileloc );
-});
+	});
    	
     </script>
     

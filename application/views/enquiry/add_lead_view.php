@@ -16,7 +16,7 @@
                 <div class="col-md-5" id="show_error">
                     <div id="notify"><!-- Error/Success/Warning Notifications go here.. --></div>
                 </div>
-	           <div class="col-lg-10">
+	           <div class="col-lg-8">
 				<div class="stepwizard">
 					
 				    <div class="stepwizard-row setup-panel">
@@ -45,7 +45,7 @@
 			  </div>
 			  
 			  
-<form id="create_lead" class="form-horizontal col-md-7" method="post" action="<?=site_url('api/add_lead')?>"">
+<form id="create_lead" class="form-horizontal col-md-6" method="post" action="<?=site_url('api/add_lead')?>"">
     <div class="row setup-content" id="step-1">
         <div class="col-md-12">
           <div class="box box-solid">
@@ -66,7 +66,7 @@
                  <div class="form-group form-group-sm">
 			        <label for="name1" class="formlabel control-label col-xs-3">Name 1</label>
 			        <div class="col-xs-8">
-			            <input type="text" class="form-control input-sm" required="required" id="name1" name="name1">
+			            <input type="text" class="form-control input-sm" id="name1" name="name1" required>
 			        </div>
 			    </div>
 			    <div class="form-group form-group-sm">
@@ -78,7 +78,7 @@
 			    <div class="form-group form-group-sm">
 			        <label for="contact1" class="formlabel control-label col-xs-3">Contact #1</label>
 			        <div class="col-xs-8">
-			            <input type="text" class="form-control input-sm" required="required" id="contact1" name="contact1">
+			            <input type="text" class="form-control input-sm" id="contact1" name="contact1" required="">
 			        </div>
 			    </div>
 			     <div class="form-group form-group-sm">
@@ -90,7 +90,7 @@
 			    <div class="form-group form-group-sm">
 			        <label for="email1" class="formlabel control-label col-xs-3">Email 1</label>
 			        <div class="col-xs-8">
-			            <input type="email" required="required" class="form-control input-sm" id="email1" name="email1">
+			            <input type="email" class="form-control input-sm" id="email1" name="email1" required>
 			        </div>
 			    </div>
 			    <div class="form-group form-group-sm">
@@ -433,7 +433,7 @@
 
     <!-- On Screen selection display -->
 
-        <div class="col-lg-4">
+        <div class="col-lg-3">
             <div class="panel panel-primary">
                   <div class="panel-heading">
                     <i class="fa fa-th-list"></i> <b> Summary of Selection</b>
@@ -444,18 +444,18 @@
                          <!-- Display the summary of selection -->
                         </div>
                   </div>
-
                   <!-- /.panel-body -->
             </div>
             <!-- /.panel .chat-panel -->
         </div>
 
+
     <!-- Display LEAD ID creation -->
-		    <div class="col-md-5" id="show_error">
+		    <div class="col-md-4" id="show_error">
 		    	<?php 
 		          	if(isset($_SESSION["lead_id"]))
 		          	{
-		          		echo "<div class='box box-success'>";
+		          		echo "<div class='box box-default'>";
 		          		echo "<div class='box-body'>";
 		          		echo "<form id='assign_job' method='post' action='".base_url('api/assign_job')."'>";
 		          		echo "<input type='hidden' name='lead_id' id='lead_id' value='$_SESSION[lead_id]'>";
@@ -488,6 +488,7 @@
                   {
                      output += '<a href="#" class="list-group-item"><b>';
                      output += val.toUpperCase();
+
                      output += '</b><span class="pull-right text-muted">';
                      output += $('#' + val).val();
                      output += '</span></a>';
@@ -497,7 +498,7 @@
 
         if($('input[name="lib[]"]:checked').length > 0)
         {
-           output += '<h5><p class="text-danger"><b>Company Registrations:</b></p></h5>';
+           output += '<h5><p class="text-success"><b>Company Registrations:</b></p></h5>';
            output += '<a href="#" class="list-group-item">';
             $('input:checkbox[id=lib]:checked').each(function() 
               {                 
@@ -512,7 +513,7 @@
         }
         if($('input[name="ajb[]"]:checked').length > 0)
         {
-           output += '<h5><p class="text-primary"><b>Audit Jobs:</b></p></h5>';
+           output += '<h5><p class="text-success"><b>Audit Jobs:</b></p></h5>';
            output += '<a href="#" class="list-group-item">';
             $('input:checkbox[id=ajb]:checked').each(function() 
               {                 
@@ -528,7 +529,7 @@
 
         if($('input[name="arj[]"]:checked').length > 0)
         {
-           output += '<h5><p class="text-inverse"><b>AGS Registration Jobs:</b></p></h5>';
+           output += '<h5><p class="text-success"><b>AGS Registration Jobs:</b></p></h5>';
            output += '<a href="#" class="list-group-item">';
             $('input:checkbox[id=arj]:checked').each(function() 
               {                 
@@ -560,7 +561,7 @@
 
         if($('input[name="alj[]"]:checked').length > 0)
         {
-           output += '<h5><p class="text-warning"><b>AGS Legal Jobs:</b></p></h5>';
+           output += '<h5><p class="text-success"><b>AGS Legal Jobs:</b></p></h5>';
            output += '<a href="#" class="list-group-item">';
             $('input:checkbox[id=alj]:checked').each(function() 
               {                 

@@ -1,6 +1,6 @@
 /* Main content */
 .container-main {
-	width: 95%;
+	width: auto;
 }
 
 
@@ -47,6 +47,9 @@ pointer-events: none;
     height: 1px;
     background-color: #ccc;
     z-order: 0;
+}
+section.content {
+    width: 100%;
 }
 .stepwizard-step {
     display: table-cell;

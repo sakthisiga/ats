@@ -18,5 +18,11 @@ class enquiry_model extends CI_Model {
 		$this->db->insert('lead_info_tb',$data);
 		return $this->db->insert_id();
 	}
+
+	public function get_leads()
+	{
+		$query = $this->db->get('lead_info_tb');
+		return $query->result();
+	}
 	
 }
