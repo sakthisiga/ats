@@ -371,7 +371,8 @@ class Api extends CI_Controller {
 					'contact_1' => 	$this->input->post('contact1'),
 					'contact_2' => 	$this->input->post('contact2'),
 					'email_1' 	=> 	$this->input->post('email1'),
-					'email_2' 	=> 	$this->input->post('email2')
+					'email_2' 	=> 	$this->input->post('email2'),
+					'user'		=>	$this->session->userdata('user')
 			]);
 			
 			$insert_id = $this->db->insert_id();

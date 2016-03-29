@@ -20,36 +20,57 @@
                     <div class="panel-body">
                       <div class="table-responsive">
 
-                       <table id="lead_table" class="table table-bordered table-condensed">
+                       <table id="lead_table" class="table table-bordered table-condensed" width="100%">
                         <thead>
                           <tr class="bg-gray-active color-palette">
-                            <th>Date</th>
-                            <th>Lead ID</th>
-                            <th>Source</th>
-                            <th>Name 1</th>
-                            <th>Name 2</th>
-                            <th>Contact 1</th>
-                            <th>Contact 2</th>
-                            <th>Email 1</th>
-                            <th>Email 2</th>
+                            <th nowrap>Date</th>
+                            <th nowrap>Lead ID</th>
+                            <th nowrap>Source</th>
+                            <th nowrap>Name 1</th>
+                            <th nowrap>Name 2</th>
+                            <th nowrap>Contact-1</th>
+                            <th nowrap>Contact-2</th>
+                            <th nowrap>Email 1</th>
+                            <th nowrap>Email 2</th>
+                            <th nowrap>New PVT Company</th>
+                            <th nowrap>New OPC Company</th>
+                            <th nowrap>New LLP Company</th>
+                            <th nowrap>New Trust</th>
+                            <th nowrap>Alteration of Capital</th>
+                            <th nowrap>Consultation</th>
+                            <th nowrap>Address Change</th>
+                            <th nowrap>ROC Compliances</th>
+                            <th nowrap>Alteration of Directors</th>
+                            <th nowrap>Sales Tax Filing</th>
+                            <th nowrap>User</th>
                           </tr>
                         </thead>
                         <tbody>
                         
                         <?php foreach($leads as $row) : ?>
                             <tr>
-                              <td> <?php echo $row->date; ?> </td>
-                              <td> <a class="open-AddBookDialog" 
-                                       href="#client-update"><?php echo "LD".$row->lead_id; ?>
+                              <td nowrap> <?php echo $row->date; ?> </td>
+                              <td nowrap> <a class="open-AddBookDialog"><?php echo "LD".$row->lid; ?>
                                  </a>
                               </td>
-                              <td> <?php echo $row->source; ?> </td>
-                              <td> <?php echo $row->name_1; ?> </td>
-                              <td> <?php echo $row->name_2; ?> </td>
-                              <td> <?php echo $row->contact_1; ?> </td>
-                              <td> <?php echo $row->contact_2; ?> </td>
-                              <td> <?php echo $row->email_1; ?> </td>
-                              <td> <?php echo $row->email_2; ?> </td>
+                              <td nowrap> <?php echo $row->source; ?> </td>
+                              <td nowrap> <?php echo $row->name_1; ?> </td>
+                              <td nowrap> <?php echo $row->name_2; ?> </td>
+                              <td nowrap> <?php echo $row->contact_1; ?> </td>
+                              <td nowrap> <?php echo $row->contact_2; ?> </td>
+                              <td nowrap> <?php echo $row->email_1; ?> </td>
+                              <td nowrap> <?php echo $row->email_2; ?> </td>
+                              <td nowrap> <?php echo $row->new_pvt_company; ?> </td>
+                              <td nowrap> <?php echo $row->new_opc_company; ?> </td>
+                              <td nowrap> <?php echo $row->new_llp_company; ?> </td>
+                              <td nowrap> <?php echo $row->new_trust; ?> </td>
+                              <td nowrap> <?php echo $row->alteration_of_capital; ?> </td>
+                              <td nowrap> <?php echo $row->lib_consultation; ?> </td>
+                              <td nowrap> <?php echo $row->address_change; ?> </td>
+                              <td nowrap> <?php echo $row->roc_compliances; ?> </td>
+                              <td nowrap> <?php echo $row->alteration_of_directors; ?> </td>
+                              <td nowrap> <?php echo $row->sales_tax_filing; ?> </td>
+                              <td nowrap> <?php echo $row->user; ?> </td>
                             </tr>
                        <?php endforeach;?>
                 </tbody>
