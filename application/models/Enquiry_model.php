@@ -22,12 +22,18 @@ class enquiry_model extends CI_Model {
 	public function get_leads()
 	{
 		$query = $this->db->query('select
-			    					a.lead_id as lid, a.*, a.*, b.*, c.*
+			    					a.lead_id as lid, a.*, b.*, c.*, d.*, e.*, f.*
 								  	FROM lead_info_tb a 
 								  	LEFT OUTER JOIN incorporation_tb b 
 								  		ON a.lead_id = b.lead_id
 								  	LEFT OUTER JOIN audit_jobs_tb c 
 								  	 	ON a.lead_id = c.lead_id
+								  	LEFT OUTER JOIN ags_reg_jobs_tb d
+								  	 	ON a.lead_id = d.lead_id
+								  	LEFT OUTER JOIN tech_jobs_tb e
+								  	 	ON a.lead_id = e.lead_id
+								  	LEFT OUTER JOIN ags_legal_jobs_tb f
+								  	 	ON a.lead_id = f.lead_id
 								  	ORDER BY lid
 								 ');
     	//$this->db->from('lead_info_tb lit, incorporation_tb it, audit_jobs_tb ajt');
