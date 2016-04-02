@@ -45,7 +45,7 @@
 			  </div>
 			  
 			  
-<form id="create_lead" class="form-horizontal col-md-6" method="post" action="<?=site_url('api/add_lead')?>"">
+<form id="create_lead" class="form-horizontal col-md-7" method="post" action="<?=site_url('api/add_lead')?>"">
     <div class="row setup-content" id="step-1">
         <div class="col-md-12">
           <div class="box box-solid">
@@ -111,7 +111,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="lib" name="lib[]" value="<?php echo $lib->lib_prop;?>"><?php echo $lib->lib_name; ?></label>
+						       <label><input type="checkbox" id="lib" name="lib[]" value="<?php echo $lib->lib_prop;?>"> <?php echo $lib->lib_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 
@@ -131,7 +131,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="lib" name="lib[]" value="<?php echo $lib->lib_prop;?>"><?php echo $lib->lib_name; ?></label>
+						       <label><input type="checkbox" id="lib" name="lib[]" value="<?php echo $lib->lib_prop;?>"> <?php echo $lib->lib_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 
@@ -166,7 +166,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="ajb" name="ajb[]" value="<?php echo $ajb->ajb_prop;?>"><?php echo $ajb->ajb_name; ?></label>
+						       <label><input type="checkbox" id="ajb" name="ajb[]" value="<?php echo $ajb->ajb_prop;?>"> <?php echo $ajb->ajb_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 
@@ -186,7 +186,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="ajb" name="ajb[]" value="<?php echo $ajb->ajb_prop;?>"><?php echo $ajb->ajb_name; ?></label>
+						       <label><input type="checkbox" id="ajb" name="ajb[]" value="<?php echo $ajb->ajb_prop;?>"> <?php echo $ajb->ajb_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 
@@ -204,7 +204,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="ajb" name="ajb[]" value="<?php echo $ajb->ajb_prop;?>"><?php echo $ajb->ajb_name; ?></label>
+						       <label><input type="checkbox" id="ajb" name="ajb[]" value="<?php echo $ajb->ajb_prop;?>"> <?php echo $ajb->ajb_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 
@@ -240,7 +240,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="arj" name="arj[]" value="<?php echo $arj->arj_prop;?>"><?php echo $arj->arj_name; ?></label>
+						       <label><input type="checkbox" id="arj" name="arj[]" value="<?php echo $arj->arj_prop;?>"> <?php echo $arj->arj_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 
@@ -260,7 +260,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="arj" name="arj[]" value="<?php echo $arj->arj_prop;?>"><?php echo $arj->arj_name; ?></label>
+						       <label><input type="checkbox" id="arj" name="arj[]" value="<?php echo $arj->arj_prop;?>"> <?php echo $arj->arj_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 
@@ -280,7 +280,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="arj" name="arj[]" value="<?php echo $arj->arj_prop;?>"><?php echo $arj->arj_name; ?></label>
+						       <label><input type="checkbox" id="arj" name="arj[]" value="<?php echo $arj->arj_prop;?>"> <?php echo $arj->arj_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 
@@ -317,7 +317,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="tj" name="tj[]" value="<?php echo $tj->tj_prop;?>"><?php echo $tj->tj_name; ?></label>
+						       <label><input type="checkbox"  id="tj" name="tj[]" value="<?php echo $tj->tj_prop;?>"> <?php echo $tj->tj_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 
@@ -337,7 +337,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="tj" name="tj[]" value="<?php echo $tj->tj_prop;?>"><?php echo $tj->tj_name; ?></label>
+						       <label><input type="checkbox"  id="tj" name="tj[]" value="<?php echo $tj->tj_prop;?>"> <?php echo $tj->tj_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 
@@ -355,7 +355,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="tj" name="tj[]" value="<?php echo $tj->tj_prop;?>"><?php echo $tj->tj_name; ?></label>
+						       <label><input type="checkbox"  id="tj" name="tj[]" value="<?php echo $tj->tj_prop;?>"> <?php echo $tj->tj_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 
@@ -390,7 +390,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="alj" name="alj[]" value="<?php echo $alj->alj_prop;?>"><?php echo $alj->alj_name; ?></label>
+						       <label><input type="checkbox" id="alj" name="alj[]" value="<?php echo $alj->alj_prop;?>"> <?php echo $alj->alj_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 
@@ -408,7 +408,7 @@
          	 	?>
 						<div class="form-group form-group-sm">
 						    <div class="checkbox">
-						       <label><input type="checkbox" id="alj" name="alj[]" value="<?php echo $alj->alj_prop;?>""><?php echo $alj->alj_name; ?></label>
+						       <label><input type="checkbox" id="alj" name="alj[]" value="<?php echo $alj->alj_prop;?>""> <?php echo $alj->alj_name; ?></label>
 						    </div>
 		                </div><!-- Form Group Ends -->
 				<?php 

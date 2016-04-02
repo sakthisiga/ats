@@ -37,6 +37,20 @@ class Enquiry extends CI_Controller {
 		$this->load->view('inc/template_view', $data);
 	}
 
+	public function modifyLead()
+	{
+		//$data['leads'] = $this->enquiry_model->get_leads();
+		$data['lead_info_build'] = $this->enquiry_model->get_lead_info('lead_info_build_tb');
+		$data['audit_job_build'] = $this->enquiry_model->get_lead_info('audit_jobs_build_tb');
+		$data['ags_reg_job_build'] = $this->enquiry_model->get_lead_info('ags_reg_jobs_build_tb');
+		$data['tech_job_build'] = $this->enquiry_model->get_lead_info('tech_jobs_build_tb');
+		$data['ags_legal_job_build'] = $this->enquiry_model->get_lead_info('ags_legal_jobs_build_tb');
+
+		$data['main_content'] = 'enquiry/modify_lead_view';
+		$this->load->view('inc/template_only_view', $data);
+		
+	}
+
 	public function logout()
 	{
 		$this->session->sess_destroy();

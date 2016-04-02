@@ -10,6 +10,7 @@
     
  <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="<?=base_url()?>public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?=base_url()?>public/css/buttons.dataTables.min.css">
   <!-- <link rel="stylesheet" href="<?=base_url()?>public/css/bootstrap-wizard.css"> -->
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?=base_url()?>public/css/font-awesome.min.css">
@@ -23,7 +24,9 @@
     <link rel="stylesheet" href="<?=base_url()?>public/css/_all-skins.min.css">
     <link rel="stylesheet" href="<?=base_url()?>public/boot/datepicker/datepicker3.css">
     <link rel="stylesheet" href="<?=base_url()?>public/boot/daterangepicker/daterangepicker-bs3.css">
+    <link rel="stylesheet" href="<?=base_url()?>public/boot/iCheck/all.css">
     <link rel="stylesheet" href="<?=base_url()?>public/css/style.css">
+    
     
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/flick/jquery-ui.css" />
     <link rel="stylesheet" href="<?=base_url()?>public/css/jquery.jspanel.css">
@@ -38,6 +41,14 @@
   <!--  <script src="<?=base_url()?>public/js/sliding.form.js"></script> -->
     <script src="<?=base_url()?>public/boot/datatables/jquery.dataTables.min.js"></script>
     <script src="<?=base_url()?>public/boot/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="<?=base_url()?>public/boot/datatables/jquery.dataTables.min.js"></script>
+    <script src="<?=base_url()?>public/boot/datatables/dataTables.buttons.min.js"></script>
+    <script src="<?=base_url()?>public/boot/exportable/buttons.flash.min.js"></script>
+          <script src="<?=base_url()?>public/boot/exportable/jszip.min.js"></script>
+      <script src="<?=base_url()?>public/boot/exportable/pdfmake.min.js"></script>
+      <script src="<?=base_url()?>public/boot/exportable/vfs_fonts.js"></script>
+      <script src="<?=base_url()?>public/boot/exportable/buttons.html5.min.js"></script>
+      <script src="<?=base_url()?>public/boot/exportable/buttons.print.min.js"></script>
     <!-- SlimScroll -->
     <script src="<?=base_url()?>public/boot/slimScroll/jquery.slimscroll.min.js"></script>
     <!-- FastClick
@@ -45,6 +56,7 @@
     
     <script src="<?=base_url()?>public/boot/datepicker/bootstrap-datepicker.js"></script>
     <script src="<?=base_url()?>public/boot/daterangepicker/daterangepicker.js"></script>
+    <script src="<?=base_url()?>public/boot/iCheck/icheck.js"></script>
     <!-- AdminLTE App -->
     <script src="<?=base_url()?>public/boot/dist/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->

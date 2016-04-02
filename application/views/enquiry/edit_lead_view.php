@@ -12,7 +12,7 @@
           <section class="content"><!-- Main content ends-->	        
 	         <div class="container container-main">
               <div class="col-xs-12">
-                  <div class="panel panel-success">
+                  <div class="panel panel-primary">
                     <div class="panel-heading">
                             <strong>Review and Modify Leads</strong>
                     </div>
@@ -23,7 +23,7 @@
                        <table id="lead_table" class="table table-bordered table-condensed" width="100%">
                        <thead>
                           <tr>
-                            <th class="bg-gray-active color-palette" nowrap></th>
+                            
                             <th class="bg-maroon color-palette" nowrap colspan="6">Lead Information</th>
                             <th class="bg-yellow color-palette" nowrap colspan="9">Company Registration</th>
                             <th class="bg-purple color-palette" nowrap colspan="6">Audit Jobs</th>
@@ -33,7 +33,7 @@
                             <th class="bg-gray-active color-palette" nowrap></th>
                           </tr>
                           <tr class="bg-gray color-palette">
-                            <th nowrap>S.No</th>
+                            
                             <th nowrap>Date</th>
                             <th nowrap>Lead ID</th>
                             <th nowrap>Source</th>
@@ -82,15 +82,67 @@
                             <th nowrap>Created By</th>
                           </tr>
                         </thead>
+
+                         <tfoot>
+                            <tr class="bg-gray color-palette">
+                       
+                            <th nowrap>Date</th>
+                            <th nowrap>Lead ID</th>
+                            <th nowrap>Source</th>
+                            <th nowrap>Name 1</th>
+                            <!-- <th nowrap>Name 2</th> -->
+                            <th nowrap>Contact-1</th>
+                            <!-- <th nowrap>Contact-2</th> -->
+                            <th nowrap>Email 1</th>
+                            <!-- <th nowrap>Email 2</th> -->
+                        <!-- Company registration -->
+                            <th nowrap>New PVT Company</th>
+                            <th nowrap>New OPC Company</th>
+                            <th nowrap>New LLP Company</th>
+                            <th nowrap>New Trust</th>
+                            <th nowrap>Alteration of Capital</th>
+                            <th nowrap>Consultation</th>
+                            <th nowrap>Address Change</th>
+                            <th nowrap>ROC Compliances</th>
+                            <th nowrap>Alteration of Directors</th>
+                            <th nowrap>Sales Tax Filing</th>
+                            <th nowrap>Service Tax Filing</th>
+                            <th nowrap>Professional Tax Filing</th>
+                            <th nowrap>TDS Filing</th>
+                            <th nowrap>IT Filing</th>
+                            <th nowrap>Consultation</th>
+                            <th nowrap>Sales Tax Registration</th>
+                            <th nowrap>Service Tac Registration</th>
+                            <th nowrap>Professional Tax Registration</th>
+                            <th nowrap>MSME Registration</th>
+                            <th nowrap>Food License</th>
+                            <th nowrap>Fire License</th>
+                            <th nowrap>IE Code</th>
+                            <th nowrap>Lease Deed</th>
+                            <th nowrap>Partnership Deed</th>
+                            <th nowrap>Website</th>
+                            <th nowrap>Mail</th>
+                            <th nowrap>LOGO</th>
+                            <th nowrap>Letterpad</th>
+                            <th nowrap>Visiting Card</th>
+                            <th nowrap>Consultation</th>
+                            <th nowrap>Trademark Registration</th>
+                            <th nowrap>Trademark Queries Reply</th>
+                            <th nowrap>Copyright</th>
+                            <th nowrap>Patent Right</th>
+                            <th nowrap>Consultation</th>
+                            <th nowrap>Created By</th>
+                          </tr>
+                        </tfoot>
                         <tbody>
                         
                         <?php 
-                          $count = 1;
+                        
                            foreach($leads as $row) : ?>
                             <tr>
-                              <td nowrap> <?php echo $count; ?> </td>
+                          
                               <td nowrap> <?php echo $row->date; ?> </td>
-                              <td nowrap> <a href="/home/etc/<?=$row->lid?>" lead_name="<?=$row->name_1?>" class="open-AddBookDialog lead_id"><?php echo "LD".$row->lid; ?>
+                              <td nowrap> <a href="http://localhost/home/" lead_name="<?=$row->name_1?>" class="open-AddBookDialog lead_id"><?php echo "LD".$row->lid; ?>
                                  </a>
                               </td>
                               <td nowrap> <?php echo $row->source; ?> </td>
@@ -139,7 +191,7 @@
 
                               <td nowrap> <small class="label label-warning"><?php echo $row->user; ?></small> </td>
                             </tr>
-                       <?php $count++; endforeach;?>
+                       <?php endforeach;?>
                 </tbody>
               </table>
               </div> <!-- table-responsive -->
@@ -151,14 +203,54 @@
   </div> <!-- content-wrapper -->
 
 <script>
+$(document).ready(function() {
+  var d = new Date();
+  var month = d.getMonth()+1;
+var day = d.getDate();
+var year = d.getFullYear();
+var hours = d.getHours();   //get hour using date object
+var minutes = d.getMinutes();    //get minutes using date object
+var date = month + "-" + day + "-" + year + "_" + hours + "h-" + minutes + "m";
+    // Setup - add a text input to each footer cell
+    $('#lead_table tfoot th').each( function () {
+        var title = $(this).text();
+        $(this).html( '<input type="text" placeholder="Search"/>' );
+    } );
+ 
+    // DataTable
+    var table =   $('#lead_table').DataTable({
+              "paging": true,
+              "searching": true,
+              "ordering": true,
+              "dom": 'Bfrtip<"bottom"l>',
+              "pagingType": "full_numbers",
+                 buttons: [{
+                        extend: 'copy'
+                    },
+                    {
+                        extend: 'excelHtml5',
+                        title: 'AanoorTax_Lead_Details_' + date
+                    }],
+                       "blengthChange": true
+            });
+ 
+    // Apply the search
+    table.columns().every( function () {
+        var that = this;
+ 
+        $( 'input', this.footer() ).on( 'keyup change', function () {
+            if ( that.search() !== this.value ) {
+                that
+                    .search( this.value )
+                    .draw();
+            }
+        } );
+    } );
+} );
+
 
      $(function () {
-            $('#lead_table').DataTable({
-              "paging": true,
-              "lengthChange": true,
-              "searching": true,
-              "ordering": true
-            });
+          
           });
      $(".lead_id").click(function(e){
        e.preventDefault();
@@ -182,10 +274,16 @@
               left:   20
                   },
           title:    "LD: " + $(this).attr('lead_name'),
-          size:     { width: 400, height: 200 },
+          size:     { width: 1100, height: 500 },
           position: "center",
           theme:    "primary",
-          content: $(this).attr('href')
+          content: function(){
+        $(this).load("../enquiry/modifyLead");
+    }
+        
+    
+
+
 });
 
     });
