@@ -18,6 +18,9 @@
                     </div>
                         <!-- /.panel-heading -->
                     <div class="panel-body">
+                    <div id="edit_lead">
+                     <!-- Lead edit Form goes here -->
+                      </div>
                       <div class="table-responsive">
 
                        <table id="lead_table" class="table table-bordered table-condensed" width="100%">
@@ -142,7 +145,7 @@
                             <tr>
                           
                               <td nowrap> <?php echo $row->date; ?> </td>
-                              <td nowrap> <a href="http://localhost/home/" lead_name="<?=$row->name_1?>" class="open-AddBookDialog lead_id"><?php echo "LD".$row->lid; ?>
+                              <td nowrap> <a href="../api/edit_lead_info" data-id="<?=$row->lid; ?>" class="open-AddBookDialog lead_id"><?php echo "LD".$row->lid; ?>
                                  </a>
                               </td>
                               <td nowrap> <?php echo $row->source; ?> </td>
@@ -247,11 +250,7 @@ var date = month + "-" + day + "-" + year + "_" + hours + "h-" + minutes + "m";
         } );
     } );
 } );
-
-
-     $(function () {
-          
-          });
+/*
      $(".lead_id").click(function(e){
        e.preventDefault();
     //alert($(this).attr('href'));
@@ -268,50 +267,20 @@ var date = month + "-" + day + "-" + year + "_" + hours + "h-" + minutes + "m";
                             }
               },
           maximizedMargin: {
-              top:    60,
+              top:    80,
               right:  20,
               bottom: 50,
               left:   20
                   },
-          title:    "LD: " + $(this).attr('lead_name'),
+          title:    "LD: " + $(this).attr('lead'),
           size:     { width: 1100, height: 500 },
           position: "center",
           theme:    "primary",
           content: function(){
         $(this).load("../enquiry/modifyLead");
     }
-        
-    
-
-
+ });
 });
 
-    });
-
-
-        $('#btn1').click(function(e){
-            e.preventDefault();
-           $.jsPanel({
-           		 dblclicks: {
-			        title:   "maximize"
-			    },
-
-           	 	draggable: {
-        					drag: function( event, ui ) {
-    							ui.position.top = Math.min( 10, ui.position.bottom )
-    							ui.position.bottom = Math.min( 50, ui.position.top )
- 									 					}
-    					},
-  				maximizedMargin: {
-        			top:    60,
-        			right:  20,
-        			bottom: 50,
-        			left:   20
-    							},
-			    title:    "New Lead",
-    			size:     { width: 400, height: 200 },
-    			position: "center",
-    			theme:    "success"
-});
-        });
+     */
 </script>     

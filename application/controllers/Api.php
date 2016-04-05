@@ -204,6 +204,39 @@ class Api extends CI_Controller {
 		$data['main_content'] = 'services/srvtx/view_client_view';
 		$this->load->view('inc/template_view', $data);
 	}
+
+	// Function : Get the Lead information for edit
+	
+	public function edit_lead_info()
+	{
+		
+		$this->output->set_content_type('application_json');
+
+		$lead_id = $this->input->post('id');
+		
+		//$this->db->where(['lead_id' => $lead_id]);
+		//$query = $this->db->get('lead_info_tb');
+
+		//Get the lead basic information
+		$query_1 = $this->db->query('select * from lead_info_tb
+								  	WHERE lead_id = '.$lead_id.'');
+
+		$query_2 = $this->db->query('select * from from incorporation_tb
+									WHERE lead_id = '.$lead_id.'');
+					
+
+
+		//Get Company Registration Detail
+
+		$this->output->set_output(json_encode([
+        			'result' => '1',
+        			'data' => $query_1->result(),
+        			'data_2' => $query_2->result()
+
+        	]));
+        	return false;
+
+	}
 	
 	// Function : Add a New Client
 	
