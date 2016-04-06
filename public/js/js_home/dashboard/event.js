@@ -9,8 +9,7 @@ var Event = function() {
         update_client();
         lead_form();
         lead_add();
-        lead_edit();
-        
+        lead_edit();   
     };
     
   // ------------------------------------------------------------------------
@@ -98,6 +97,8 @@ var Event = function() {
     
 };
 
+
+
 // ------------------------------------------------------------------------
 
  var lead_edit = function() { 
@@ -113,7 +114,7 @@ $("body").on('click', '.lead_id', function(e) {
 
         $.post(url,postData, function(o){
 
-          var output = '<div class="box box-warning">';
+        var output = '<div class="box box-warning">';
           output +=  '<div class="box-header">';
 
           output += '<div class="pull-right box-tools">';
@@ -121,7 +122,7 @@ $("body").on('click', '.lead_id', function(e) {
           output += '<button class="btn btn-default btn-sm" data-widget="collapse" data-toggle="tooltip" title="Minimize"><i class="fa fa-minus"></i></button>';
           output += '<button class="btn btn-default btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button></div>';
           output += '<i class="fa fa-pencil"></i>';
-          output += '<h3 class="box-title">Lead: LD' + o.data[0].lead_id + ' | ' + o.data[0].name_1 + ' | ' +o.data[0].contact_1+ '</h3>';
+          output += '<h3 class="box-title"><b>Lead: LD' + o.data[0].lead_id + ' | ' + o.data[0].name_1 + ' | ' +o.data[0].contact_1+ '</b></h3>';
           output += '</div>';
           output += '<div class="box-body no-padding">';
 
@@ -129,14 +130,14 @@ $("body").on('click', '.lead_id', function(e) {
 
 
           output += '<form action="#" method="post">';
-          output += '<div class="col-lg-2"><div class="well well-lg no-padding">';
-           output += '<table class="table table-condensed incorporation_tbl"><tr><th colspan="2"><u>Incorporation Details</u></th></tr>';
-
-          for(var i=0; i<=o.data_2.length; i++)
-          {
-          output += Template.get_company_reg_info(o.data_2[i]);
-          //output += '<tr><td><b>'+ o.data_2[i].Field + '</b></td></tr>';
-          }
+          output += '<div class="col-lg-3"><div class="well well-lg no-padding">';
+          output += '<table class="table table-condensed incorporation_tbl"><tr><th><u>Incorporation Details</u></th>';
+              if(o.group == 1)
+          output += '<th><input type="checkbox" class="minimal" id="company_edit"> Edit</th>';
+          output += '<?php } ?>';
+          output += '</tr>';
+          //output += '<tr><td></td><td></td></tr>';
+          output += Template.get_company_reg_info(o.data_2[0]);
           output += '</table>';
           output += '</div></div>';
           output += '</form>';
@@ -147,7 +148,19 @@ $("body").on('click', '.lead_id', function(e) {
 
 
           $("#edit_lead").html(output);
+
+          $("#company_edit").click(function() {
+          if ($("#company_edit").is(":checked")) 
+                $(".company").prop('disabled', false);
+          else
+                $(".company").prop('disabled', true);
+          
+        });
+        
     });
+
       
   });
+
+
   }

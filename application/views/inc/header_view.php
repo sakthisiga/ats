@@ -78,7 +78,7 @@
       <!-- FAVICON file -->
 		<link rel="shortcut icon" href="<?php echo base_url();?>public/img/favicon.png">  	
         
-     <script type="text/javascript">
+     <script type="application/javascript">
             //Init the Dashboard Application
             $(function() {
                 // Init application

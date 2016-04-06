@@ -4,6 +4,7 @@ var Template = function() {
   
     this.__construct = function() {
         //console.log('Template Created');
+        list_company();
     };
     
       // ------------------------------------------------------------------------
@@ -34,11 +35,36 @@ var Template = function() {
     
     // ------------------------------------------------------------------------
 
+   var list_company = function(name, id, obj) {
+        var output = '';
+        output += '<tr><td>' + name + '</td><td>';
+        //output += '<td><select class="company" name="'+ id +'" id="'+ id +'" disabled="true">';
+            if(obj)
+        output += '<input type="checkbox" class="company" name="'+ id +'" id="'+ id +'" value="'+ id +'" disabled="true" checked>';
+            else
+        output += '<input type="checkbox" class="company" name="'+ id +'" id="'+ id +'" value="'+ id +'" disabled="true">';            
+        output += '</td></tr>';
+        return output;
+
+    }
+
      this.get_company_reg_info = function(obj) {
-        
-            var output = '<tr><td><b>'+ obj.Field + '</b></td></tr>';
+
+            var output = '';
+                
+                output = list_company('New PVT Company', 'new_pvt_company', obj.new_pvt_company );
+                output += list_company('New OPC Company', 'new_opc_company', obj.new_opc_company );
+                output += list_company('New LLP Company', 'new_llp_company', obj.new_llp_company );
+                output += list_company('New Trust', 'new_trust', obj.new_trust );
+                output += list_company('Alteration of Capital', 'alteration_of_capital', obj.alteration_of_capital );
+                output += list_company('Consultation', 'lib_consultation', obj.lib_consultation );
+                output += list_company('Address Change', 'address_change', obj.address_change );
+                output += list_company('ROC Compliance', 'roc_compliance', obj.roc_compliances );
+                output += list_company('Alteration of Directors', 'alteration_of_directors', obj.alteration_of_directors );
+
             return output;
      }
+
 
     // ------------------------------------------------------------------------
     

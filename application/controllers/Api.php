@@ -221,7 +221,7 @@ class Api extends CI_Controller {
 		$query_1 = $this->db->query('select * from lead_info_tb
 								  	WHERE lead_id = '.$lead_id.'');
 
-		$query_2 = $this->db->query('select * from from incorporation_tb
+		$query_2 = $this->db->query('select * from incorporation_tb
 									WHERE lead_id = '.$lead_id.'');
 					
 
@@ -231,7 +231,8 @@ class Api extends CI_Controller {
 		$this->output->set_output(json_encode([
         			'result' => '1',
         			'data' => $query_1->result(),
-        			'data_2' => $query_2->result()
+        			'data_2' => $query_2->result(),
+        			'group' => $_SESSION["group"]
 
         	]));
         	return false;

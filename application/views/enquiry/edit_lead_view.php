@@ -206,6 +206,13 @@
   </div> <!-- content-wrapper -->
 
 <script>
+
+  $("#company_edit").click(function() {
+       alert("hai");
+  });
+
+
+
 $(document).ready(function() {
   var d = new Date();
   var month = d.getMonth()+1;
