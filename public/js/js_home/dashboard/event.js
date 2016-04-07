@@ -114,6 +114,7 @@ $("body").on('click', '.lead_id', function(e) {
 
         $.post(url,postData, function(o){
 
+          
         var output = '<div class="box box-warning">';
           output +=  '<div class="box-header">';
 
@@ -126,15 +127,14 @@ $("body").on('click', '.lead_id', function(e) {
           output += '</div>';
           output += '<div class="box-body no-padding">';
 
-          output += Template.get_lead_info(o.data[0]);
+          output += Template.get_lead_info(o.data[0], o.group);
 
 
           output += '<form action="#" method="post">';
-          output += '<div class="col-lg-3"><div class="well well-lg no-padding">';
-          output += '<table class="table table-condensed incorporation_tbl"><tr><th><u>Incorporation Details</u></th>';
+          output += '<div class="col-lg-2"><div class="well well-lg no-padding">';
+          output += '<table class="table table-condensed incorporation_tbl"><tr><th><u>Incorporation_Details</u></th>';
               if(o.group == 1)
-          output += '<th><input type="checkbox" class="minimal" id="company_edit"> Edit</th>';
-          output += '<?php } ?>';
+          output += '<th><input type="checkbox" class="minimal" id="company_edit"></i></th>';
           output += '</tr>';
           //output += '<tr><td></td><td></td></tr>';
           output += Template.get_company_reg_info(o.data_2[0]);
@@ -153,9 +153,15 @@ $("body").on('click', '.lead_id', function(e) {
           if ($("#company_edit").is(":checked")) 
                 $(".company").prop('disabled', false);
           else
-                $(".company").prop('disabled', true);
-          
-        });
+                $(".company").prop('disabled', true);       
+            });
+
+          $("#lead_edit").click(function() {
+          if ($("#lead_edit").is(":checked")) 
+                $(".ld_txt").prop('disabled', false);
+          else
+                $(".ld_txt").prop('disabled', true);       
+            });
         
     });
 

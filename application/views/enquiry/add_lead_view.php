@@ -52,18 +52,18 @@
 		   <div class="box-body">
 		   <div class="row">
             <div class="col-md-8">
-                <div class="form-group form-group-sm">
-			        <label for="name1" class="formlabel control-label col-xs-3">Source</label>
-			        <div class="col-xs-8">
+             <div class="form-group form-group-sm">
+			         <label for="name1" class="formlabel control-label col-xs-3">Source</label>
+			          <div class="col-xs-8">
 			            <select class="form-control input-sm" id="source" name="source">
                     <option> No Source </option>
 				            <option>Just Dial</option>
 				            <option>Web</option>
 				            <option>Reference</option>
 			            </select>
+			          </div>
 			        </div>
-			    </div>
-                 <div class="form-group form-group-sm">
+              <div class="form-group form-group-sm">
 			        <label for="name1" class="formlabel control-label col-xs-3">Name 1</label>
 			        <div class="col-xs-8">
 			            <input type="text" class="form-control input-sm" id="name1" name="name1" required>

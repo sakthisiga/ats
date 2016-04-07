@@ -9,6 +9,10 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     
  <!-- Bootstrap 3.3.5 -->
+   <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/flick/jquery-ui.css" />
+    <link rel="stylesheet" href="<?=base_url()?>public/css/jquery.jspanel.css">
+
+
     <link rel="stylesheet" href="<?=base_url()?>public/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?=base_url()?>public/css/buttons.dataTables.min.css">
   <!-- <link rel="stylesheet" href="<?=base_url()?>public/css/bootstrap-wizard.css"> -->
@@ -28,8 +32,7 @@
     <link rel="stylesheet" href="<?=base_url()?>public/css/style.css">
     
     
-    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/flick/jquery-ui.css" />
-    <link rel="stylesheet" href="<?=base_url()?>public/css/jquery.jspanel.css">
+   
         
 
  <!-- jQuery 2.1.4 -->
