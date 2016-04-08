@@ -99,6 +99,7 @@ var Event = function() {
 
 
 
+
 // ------------------------------------------------------------------------
 
  var lead_edit = function() { 
@@ -114,55 +115,244 @@ $("body").on('click', '.lead_id', function(e) {
 
         $.post(url,postData, function(o){
 
-          
+
         var output = '<div class="box box-warning">';
           output +=  '<div class="box-header">';
-
           output += '<div class="pull-right box-tools">';
-        
           output += '<button class="btn btn-default btn-sm" data-widget="collapse" data-toggle="tooltip" title="Minimize"><i class="fa fa-minus"></i></button>';
-          output += '<button class="btn btn-default btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button></div>';
-          output += '<i class="fa fa-pencil"></i>';
-          output += '<h3 class="box-title"><b>Lead: LD' + o.data[0].lead_id + ' | ' + o.data[0].name_1 + ' | ' +o.data[0].contact_1+ '</b></h3>';
+          output += '<button class="close_lead btn btn-default btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button></div>';
           output += '</div>';
-          output += '<div class="box-body no-padding">';
+          output += '<div class="box-body">';
 
           output += Template.get_lead_info(o.data[0], o.group);
 
+          output += Template.get_company_reg_info(o.data_2[0], o.group);
 
-          output += '<form action="#" method="post">';
-          output += '<div class="col-lg-2"><div class="well well-lg no-padding">';
-          output += '<table class="table table-condensed incorporation_tbl"><tr><th><u>Incorporation_Details</u></th>';
-              if(o.group == 1)
-          output += '<th><input type="checkbox" class="minimal" id="company_edit"></i></th>';
-          output += '</tr>';
-          //output += '<tr><td></td><td></td></tr>';
-          output += Template.get_company_reg_info(o.data_2[0]);
-          output += '</table>';
-          output += '</div></div>';
-          output += '</form>';
- 
+          output += Template.get_audit_jobs_info(o.data_audit_jobs[0], o.group);
 
+          output += Template.get_ags_reg_jobs_info(o.data_ags_reg_jobs[0], o.group);
+
+          output += Template.get_tech_jobs_info(o.data_tech_jobs[0], o.group);
+
+          output += Template.get_legal_jobs_info(o.data_legal_jobs[0], o.group);
+        
           output += '</div>';
           output += '</div>';
 
 
           $("#edit_lead").html(output);
 
+
+
+          // Disable and Enable the Legal checkbox in Lead Edit
+          $("#legal_jobs_edit").click(function() {
+          if ($("#legal_jobs_edit").is(":checked")) 
+                $(".legal").prop('disabled', false);
+          else
+                $(".legal").prop('disabled', true);       
+          });
+
+          // Disable and Enable the Tech checkbox in Lead Edit
+          $("#tech_jobs_edit").click(function() {
+          if ($("#tech_jobs_edit").is(":checked")) 
+                $(".tech").prop('disabled', false);
+          else
+                $(".tech").prop('disabled', true);       
+          });
+
+
+         // Disable and Enable the Ags Reg checkbox in Lead Edit
+          $("#ags_reg_jobs_edit").click(function() {
+          if ($("#ags_reg_jobs_edit").is(":checked")) 
+                $(".ags-reg").prop('disabled', false);
+          else
+                $(".ags-reg").prop('disabled', true);       
+          });
+
+
+        // Disable and Enable the Incorporation checkbox in Lead Edit
+          $("#audit_jobs_edit").click(function() {
+          if ($("#audit_jobs_edit").is(":checked")) 
+                $(".audit").prop('disabled', false);
+          else
+                $(".audit").prop('disabled', true);       
+          });
+
+        // Disable and Enable the Audit jobs checkbox in Lead Edit
           $("#company_edit").click(function() {
           if ($("#company_edit").is(":checked")) 
                 $(".company").prop('disabled', false);
           else
                 $(".company").prop('disabled', true);       
+          });
+
+
+
+        // Disable and Enable the Lead Information checkbox in Lead Edit  
+          $("#lead_edit").click(function() {
+          if ($("#lead_edit").is(":checked")) {
+                $(".ld_txt").prop('disabled', false);
+                $(".ld_btn").show();
+              }
+          else {
+                $(".ld_txt").prop('disabled', true);       
+                $(".ld_btn").hide();
+            }
+          });
+
+
+        // Reload the table if clicking the "Close" button
+          $(".close_lead").click(function(evt) {
+              evt.preventDefault();
+              location.reload(); 
             });
 
-          $("#lead_edit").click(function() {
-          if ($("#lead_edit").is(":checked")) 
-                $(".ld_txt").prop('disabled', false);
-          else
-                $(".ld_txt").prop('disabled', true);       
-            });
+
+        // Update lead information in DB 
+         $("#update_lead").submit(function(evt) {
+         evt.preventDefault();
+         
+            var url = $(this).attr('action');
+            var postData = $(this).serialize();
+            
+            $.post(url, postData, function(o){
+               if(o.result == 1) {
+                   Display.success(o.output);
+               }
+               else if(o.result == 2)
+                 {
+                  Display.warning(o.output);
+                 }
+               else
+               {
+                 Display.error(o.error);
+               }
+            },'json');             
+       });
         
+        // Update Company information in DB
+
+        $(document).on("change", "input[class='company']", function () {
+            e.preventDefault();
+            var checkbox = $(this);
+            var checked = checkbox.prop('checked');
+            if(checked)
+              var chk = 'Y';
+            else
+              var chk = '';
+            var url = "../api/update_company";
+            var postData = { 
+                              lead_id: checkbox.data('leadid'), 
+                              service: checkbox.data('name'), 
+                              checked: chk
+                           };
+
+            $.post(url, postData, function(o){
+               if(o.result == 1) {
+                   //Display.success(o.output);
+               }
+            },'json');  
+        });
+
+    // Update Audit Jobs information in DB
+
+        $(document).on("change", "input[class='audit']", function () {
+            e.preventDefault();
+            var checkbox = $(this);
+            var checked = checkbox.prop('checked');
+            if(checked)
+              var chk = 'Y';
+            else
+              var chk = '';
+            var url = "../api/update_audit_jobs";
+            var postData = { 
+                              lead_id: checkbox.data('leadid'), 
+                              service: checkbox.data('name'), 
+                              checked: chk
+                           };
+
+            $.post(url, postData, function(o){
+               if(o.result == 1) {
+                   //Display.success(o.output);
+               }
+            },'json');  
+        });
+
+  // Update AGS Reg Jobs information in DB
+
+        $(document).on("change", "input[class='ags-reg']", function () {
+            e.preventDefault();
+            var checkbox = $(this);
+            var checked = checkbox.prop('checked');
+            if(checked)
+              var chk = 'Y';
+            else
+              var chk = '';
+            var url = "../api/update_ags_reg_jobs";
+            var postData = { 
+                              lead_id: checkbox.data('leadid'), 
+                              service: checkbox.data('name'), 
+                              checked: chk
+                           };
+
+            $.post(url, postData, function(o){
+               if(o.result == 1) {
+                   //Display.success(o.output);
+               }
+            },'json');  
+        });
+
+ // Update Tech Jobs information in DB
+
+        $(document).on("change", "input[class='tech']", function () {
+            e.preventDefault();
+            var checkbox = $(this);
+            var checked = checkbox.prop('checked');
+            if(checked)
+              var chk = 'Y';
+            else
+              var chk = '';
+            var url = "../api/update_tech_jobs";
+            var postData = { 
+                              lead_id: checkbox.data('leadid'), 
+                              service: checkbox.data('name'), 
+                              checked: chk
+                           };
+
+            $.post(url, postData, function(o){
+               if(o.result == 1) {
+                   //Display.success(o.output);
+               }
+            },'json');  
+        });
+
+// Update Legal Jobs information in DB
+
+        $(document).on("change", "input[class='legal']", function () {
+            e.preventDefault();
+            var checkbox = $(this);
+            var checked = checkbox.prop('checked');
+            if(checked)
+              var chk = 'Y';
+            else
+              var chk = '';
+            var url = "../api/update_legal_jobs";
+            var postData = { 
+                              lead_id: checkbox.data('leadid'), 
+                              service: checkbox.data('name'), 
+                              checked: chk
+                           };
+
+            $.post(url, postData, function(o){
+               if(o.result == 1) {
+                   //Display.success(o.output);
+               }
+            },'json');  
+        });
+
+
+        //---------------------------------------------------------------------------
+
     });
 
       

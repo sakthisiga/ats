@@ -18,6 +18,7 @@
                     </div>
                         <!-- /.panel-heading -->
                     <div class="panel-body">
+                      <div id="notify"><!-- Error/Success/Warning Notifications go here.. --></div>
                     <div id="edit_lead">
                      <!-- Lead edit Form goes here -->
                       </div>

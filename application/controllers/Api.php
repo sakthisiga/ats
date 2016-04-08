@@ -205,6 +205,159 @@ class Api extends CI_Controller {
 		$this->load->view('inc/template_view', $data);
 	}
 
+
+
+	// Function : Update the Tech jobs information
+	
+	public function update_legal_jobs()
+	{
+		
+		$this->output->set_content_type('application_json');
+
+		$lead_id = $this->input->post('lead_id');
+		$service = $this->input->post('service');
+		$checked = $this->input->post('checked');
+		
+
+		$data = array(
+               $service => $checked
+            );
+
+		$this->db->where('lead_id', $lead_id);
+		$res = $this->db->update('ags_legal_jobs_tb', $data);
+		
+		$result = $this->db->affected_rows();
+		if($result)
+		{
+				$this->output->set_output(json_encode([
+						'result' 	=> 	'1',
+						'output'	=>	'Legal Jobs Updated'
+				]));
+		}
+
+	}
+
+
+	// Function : Update the Tech jobs information
+	
+	public function update_tech_jobs()
+	{
+		
+		$this->output->set_content_type('application_json');
+
+		$lead_id = $this->input->post('lead_id');
+		$service = $this->input->post('service');
+		$checked = $this->input->post('checked');
+		
+
+		$data = array(
+               $service => $checked
+            );
+
+		$this->db->where('lead_id', $lead_id);
+		$res = $this->db->update('tech_jobs_tb', $data);
+		
+		$result = $this->db->affected_rows();
+		if($result)
+		{
+				$this->output->set_output(json_encode([
+						'result' 	=> 	'1',
+						'output'	=>	'Tech Jobs Updated'
+				]));
+		}
+
+	}
+
+
+	// Function : Update the AGS Reg jobs information
+	
+	public function update_ags_reg_jobs()
+	{
+		
+		$this->output->set_content_type('application_json');
+
+		$lead_id = $this->input->post('lead_id');
+		$service = $this->input->post('service');
+		$checked = $this->input->post('checked');
+		
+
+		$data = array(
+               $service => $checked
+            );
+
+		$this->db->where('lead_id', $lead_id);
+		$res = $this->db->update('ags_reg_jobs_tb', $data);
+		
+		$result = $this->db->affected_rows();
+		if($result)
+		{
+				$this->output->set_output(json_encode([
+						'result' 	=> 	'1',
+						'output'	=>	'AGS Reg Jobs Updated'
+				]));
+		}
+
+	}
+
+	// Function : Update the Audit jobs information
+	
+	public function update_audit_jobs()
+	{
+		
+		$this->output->set_content_type('application_json');
+
+		$lead_id = $this->input->post('lead_id');
+		$service = $this->input->post('service');
+		$checked = $this->input->post('checked');
+		
+
+		$data = array(
+               $service => $checked
+            );
+
+		$this->db->where('lead_id', $lead_id);
+		$res = $this->db->update('audit_jobs_tb', $data);
+		
+		$result = $this->db->affected_rows();
+		if($result)
+		{
+				$this->output->set_output(json_encode([
+						'result' 	=> 	'1',
+						'output'	=>	'Audit Jobs Updated'
+				]));
+		}
+
+	}
+
+	// Function : Update the company information 
+	
+	public function update_company()
+	{
+		
+		$this->output->set_content_type('application_json');
+
+		$lead_id = $this->input->post('lead_id');
+		$service = $this->input->post('service');
+		$checked = $this->input->post('checked');
+		
+
+		$data = array(
+               $service => $checked
+            );
+
+		$this->db->where('lead_id', $lead_id);
+		$res = $this->db->update('incorporation_tb', $data);
+		
+		$result = $this->db->affected_rows();
+		if($result)
+		{
+				$this->output->set_output(json_encode([
+						'result' 	=> 	'1',
+						'output'	=>	'Company Information Updated'
+				]));
+		}
+
+	}
 	// Function : Get the Lead information for edit
 	
 	public function edit_lead_info()
@@ -224,7 +377,17 @@ class Api extends CI_Controller {
 		$query_2 = $this->db->query('select * from incorporation_tb
 									WHERE lead_id = '.$lead_id.'');
 					
+		$query_3 = $this->db->query('select * from audit_jobs_tb
+									WHERE lead_id = '.$lead_id.'');
+					
+		$query_4 = $this->db->query('select * from ags_reg_jobs_tb
+									WHERE lead_id = '.$lead_id.'');
 
+		$query_5 = $this->db->query('select * from tech_jobs_tb
+									WHERE lead_id = '.$lead_id.'');
+
+		$query_6 = $this->db->query('select * from ags_legal_jobs_tb
+									WHERE lead_id = '.$lead_id.'');
 
 		//Get Company Registration Detail
 
@@ -232,6 +395,10 @@ class Api extends CI_Controller {
         			'result' => '1',
         			'data' => $query_1->result(),
         			'data_2' => $query_2->result(),
+        			'data_audit_jobs' => $query_3->result(),
+        			'data_ags_reg_jobs' => $query_4->result(),
+        			'data_tech_jobs' => $query_5->result(),
+        			'data_legal_jobs' => $query_6->result(),
         			'group' => $_SESSION["group"]
 
         	]));
@@ -383,17 +550,7 @@ class Api extends CI_Controller {
 	public function add_lead()
 	{
 		$this->output->set_content_type('application_json');
-	/*	$values = $this->input->post('lib');
-		echo $this->input->post('source');
-		foreach ($values as $value){
-			echo $value."<br />";
-		} 
-		
-		$lead = $this->input->post('lib');
-		$ajb1 = $this->input->post('ajb');
-		$arj1 = $this->input->post('arj');
-		$tj1 = $this->input->post('tj');
-		$alj1 = $this->input->post('alj');*/
+
 		if($this->input->post('lib')==true || $this->input->post('ajb')==true || $this->input->post('arj')==true || $this->input->post('tj')==true || $this->input->post('alj')==true)
 		{
 			$date = date('Y-m-d');
@@ -421,54 +578,55 @@ class Api extends CI_Controller {
 				
 				//Loading Incorporation information into DB
 				$lib = $this->input->post('lib');
+				$this->db->set('lead_id', $insert_id);
 				if( !empty($lib) ) {
-					$this->db->set('lead_id', $insert_id);
 					foreach ($lib as $value){
 						$this->db->set($value, 'Y');
 					}
-					$incorp = $this->db->insert('incorporation_tb');
 				}
+				$incorp = $this->db->insert('incorporation_tb');
 				
 				//Loading audit job information into DB
 				$ajb = $this->input->post('ajb');
+				$this->db->set('lead_id', $insert_id);
 				if( !empty($ajb) ) {
-					$this->db->set('lead_id', $insert_id);
 					foreach ($ajb as $value){
 						$this->db->set($value, 'Y');
 					}
-					$audit_jobs = $this->db->insert('audit_jobs_tb');
 				}
+				$audit_jobs = $this->db->insert('audit_jobs_tb');
 				
 				
 				//Loading ags registration jobs into DB 
 				$arj = $this->input->post('arj');
+				$this->db->set('lead_id', $insert_id);
 				if( !empty($arj) ) {
-					$this->db->set('lead_id', $insert_id);
 					foreach ($arj as $value){
 						$this->db->set($value, 'Y');
 					}
-					$ags_reg_jobs = $this->db->insert('ags_reg_jobs_tb');
 				}
+				$ags_reg_jobs = $this->db->insert('ags_reg_jobs_tb');
 				
 				//Loading ags registration jobs into DB
 				$tj = $this->input->post('tj');
+				$this->db->set('lead_id', $insert_id);
 				if( !empty($tj) ) {
-					$this->db->set('lead_id', $insert_id);
+					
 					foreach ($tj as $value){
 						$this->db->set($value, 'Y');
 					}
-					$tech_jobs = $this->db->insert('tech_jobs_tb');
 				}
+				$tech_jobs = $this->db->insert('tech_jobs_tb');
 				
 				//Loading ags registration jobs into DB
 				$alj = $this->input->post('alj');
+				$this->db->set('lead_id', $insert_id);
 				if( !empty($alj) ) {
-					$this->db->set('lead_id', $insert_id);
 					foreach ($alj as $value){
 						$this->db->set($value, 'Y');
 					}
-					$ags_legal_jobs = $this->db->insert('ags_legal_jobs_tb');
 				}
+				$ags_legal_jobs = $this->db->insert('ags_legal_jobs_tb');
 				
 				$this->output->set_output(json_encode(['result' => '1']));
 			}
@@ -483,6 +641,67 @@ class Api extends CI_Controller {
 	
 	}
 	
+	// Function : Update Lead Information
+	
+	public function update_lead()
+	{
+			//$this->_require_login();
+		 
+		$this->output->set_content_type('application_json');
+		 
+		//Form Validation
+		$this->form_validation->set_rules('name1','Name (P)','required');
+		$this->form_validation->set_rules('contact1','Contact (P)','required');
+		$this->form_validation->set_rules('email1','Email (P)','required');
+		
+		 
+		if($this->form_validation->run() == false)
+		{
+			$this->output->set_output(json_encode([
+					'result' => '0',
+					'error' => $this->form_validation->error_array()
+			]));
+			return false;
+		}
+		 
+		//Inserting data
+		$data = array(
+               'name_1' => $this->input->post('name1'),
+               'name_2' => $this->input->post('name2'),
+               'contact_1' => $this->input->post('contact1'),
+               'contact_2' => $this->input->post('contact2'),
+               'email_1' => $this->input->post('email1'),
+               'email_2' => $this->input->post('email2')
+            );
+
+		$this->db->where('lead_id', $this->input->post('leadid'));
+		$this->db->update('lead_info_tb', $data);
+		
+		$result = $this->db->affected_rows();
+
+		if($result)
+		{
+			// Get fresh list to be posted to DOM
+			$this->output->set_output(json_encode([
+					'result' => '1',
+					'output' => 'Lead Updated Sucessfully'
+			])); 
+			return false;
+
+		}
+		else
+		{
+			$this->output->set_output(json_encode([
+					'result' => '2',
+					'output' => 'No changes made, please edit any field before clicking the "Update" button'
+			]));
+			return false;
+		}
+		
+		//$data['main_content'] = 'dashboard_view';
+		//$this->load->view('inc/template_view', $data);
+	}
+
 	public function assign_job()
 	{
 		echo $this->input->post('lead_id');
