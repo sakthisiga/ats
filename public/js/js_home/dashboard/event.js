@@ -110,7 +110,7 @@ $("body").on('click', '.lead_id', function(e) {
         var self = $(this);
         var url = $(this).attr('href');
         var postData = { 
-                          id: $(this).attr('data-id') 
+                          id: $(this).data('id') 
                        };
 
         $.post(url,postData, function(o){
