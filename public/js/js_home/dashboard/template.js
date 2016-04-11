@@ -29,7 +29,7 @@ var Template = function() {
             output += '</td></tr>'
 
             output += '<tr><td>Lead ID</td><td>';
-            output += '<input type="text" class="form-control input-sm"  id="leadid" name="leadid" value="'+ obj.lead_id+ '" readonly="readonly">';
+            output += '<input type="text" class="form-control input-sm"  id="leadid" name="leadid" value="LD'+ obj.lead_id+ '" readonly="readonly">';
             output += '</td></tr>'
 
             
