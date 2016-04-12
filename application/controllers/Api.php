@@ -563,7 +563,8 @@ class Api extends CI_Controller {
 					'contact_2' => 	$this->input->post('contact2'),
 					'email_1' 	=> 	$this->input->post('email1'),
 					'email_2' 	=> 	$this->input->post('email2'),
-					'user'		=>	$this->session->userdata('user')
+					'user'		=>	$this->session->userdata('user'),
+					'status'	=> 'Active'
 			]);
 			
 			$insert_id = $this->db->insert_id();
@@ -635,7 +636,7 @@ class Api extends CI_Controller {
 		{
 			$this->output->set_output(json_encode([
 						'result' 	=> 	'0',
-						'output'	=>	'No Job is selected'
+						'output'	=>	'Please select a job, before submitting the Lead'
 				]));
 		}
 	
@@ -664,7 +665,10 @@ class Api extends CI_Controller {
 			return false;
 		}
 		 
-		//Inserting data
+
+		 $lead_id = substr($this->input->post('leadid'),2);
+
+		//updating data
 		$data = array(
                'name_1' => $this->input->post('name1'),
                'name_2' => $this->input->post('name2'),
@@ -674,7 +678,7 @@ class Api extends CI_Controller {
                'email_2' => $this->input->post('email2')
             );
 
-		$this->db->where('lead_id', $this->input->post('leadid'));
+		$this->db->where('lead_id', $lead_id);
 		$this->db->update('lead_info_tb', $data);
 		
 		$result = $this->db->affected_rows();

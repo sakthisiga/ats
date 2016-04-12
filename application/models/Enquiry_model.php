@@ -34,6 +34,7 @@ class enquiry_model extends CI_Model {
 								  	 	ON a.lead_id = e.lead_id
 								  	LEFT OUTER JOIN ags_legal_jobs_tb f
 								  	 	ON a.lead_id = f.lead_id
+								  	WHERE status="Active" 
 								  	ORDER BY lid
 								 ');
     	//$this->db->from('lead_info_tb lit, incorporation_tb it, audit_jobs_tb ajt');
