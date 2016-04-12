@@ -121,6 +121,7 @@ $("body").on('click', '.lead_id', function(e) {
           output += '<div class="pull-right box-tools">';
           output += '<button class="btn btn-default btn-sm" data-widget="collapse" data-toggle="tooltip" title="Minimize"><i class="fa fa-minus"></i></button>';
           output += '<button class="close_lead btn btn-default btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button></div>';
+          output += '<h3 class="box-title"><b>Lead: LD' + o.data[0].lead_id + ' | ' + o.data[0].name_1 + ' | ' +o.data[0].contact_1+ '</b></h3>';
           output += '</div>';
           output += '<div class="box-body">';
 
