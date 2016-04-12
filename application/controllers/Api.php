@@ -666,7 +666,33 @@ class Api extends CI_Controller {
 
 	}
 
-	// Function : Update Lead Information
+
+// Function : Delete the Lead permanently
+	
+	public function delete_lead()
+	{
+		
+		$this->output->set_content_type('application_json');
+
+		$lead_id = $this->input->post('lead_id');
+		
+		$this->db->where('lead_id', $lead_id);
+		$this->db->delete('lead_info_tb');
+		
+		$result = $this->db->affected_rows();
+
+		if($result)
+		{
+				$this->output->set_output(json_encode([
+						'result' 	=> 	'1',
+						'output'	=>	'<b>LD'.$lead_id.'</b> has been Deleted'
+				]));
+		}
+
+	}
+	
+
+// Function : Update Lead Information
 	
 	public function update_lead()
 	{

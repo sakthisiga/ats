@@ -138,8 +138,13 @@ $("body").on('click', '.lead_id', function(e) {
           output += Template.get_legal_jobs_info(o.data_legal_jobs[0], o.group);
           
           if(o.group == 1)
-          output += '<input type= "button" class="btn btn-danger pull-right lead_reject" data-leadid="'+o.data[0].lead_id+ '" type="button" value="Reject">';
-
+          {
+          //output += '<div class="col-lg-2"><div class="well well-lg no-padding">';
+          output += '<div class="pull-right box-tools">';
+          output += '<input type= "button" class="btn btn-warning lead_reject" data-leadid="'+o.data[0].lead_id+ '" value="Reject">';
+          output += '<p>&nbsp;</p><input type= "button" class="btn btn-danger lead_delete" data-leadid="'+o.data[0].lead_id+ '" value="Delete">';
+          output += '</div>';
+          }
           output += '</div>';
           output += '</div>';
 
@@ -378,6 +383,31 @@ $("body").on('click', '.lead_id', function(e) {
             }
               return false;
         });
+
+    // Delete the Lead ID permanenetly from the Lead table
+
+        $(document).on("click", ".lead_delete", function () {
+            e.preventDefault();
+            if (confirm("If you are sure, Press 'OK' or Press 'CANCEL'")) {
+                
+                var url = "../api/delete_lead";
+                var postData = { 
+                              lead_id: $(this).data('leadid')
+                           };
+
+                $.post(url, postData, function(o){
+                   if(o.result == 1) {
+                       Display.error(o.output);
+                       location.reload();
+                   }
+            },'json');  
+
+
+
+            }
+              return false;
+        });
+
 
 
 
