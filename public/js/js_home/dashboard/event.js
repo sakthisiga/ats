@@ -136,12 +136,15 @@ $("body").on('click', '.lead_id', function(e) {
           output += Template.get_tech_jobs_info(o.data_tech_jobs[0], o.group);
 
           output += Template.get_legal_jobs_info(o.data_legal_jobs[0], o.group);
-        
+          
+          if(o.group == 1)
+          output += '<input type= "button" class="btn btn-danger pull-right lead_reject" data-leadid="'+o.data[0].lead_id+ '" type="button" value="Reject">';
+
           output += '</div>';
           output += '</div>';
 
 
-          $("#edit_lead").html(output);
+          $("#edit_lead").html(output);  //Generate the lead view/edit form
 
 
 
@@ -350,6 +353,32 @@ $("body").on('click', '.lead_id', function(e) {
                }
             },'json');  
         });
+
+
+    // Reject the Lead ID to make the invisible of Lead in "Lead view" module
+
+        $(document).on("click", ".lead_reject", function () {
+            e.preventDefault();
+            if (confirm("If you are sure, Press 'OK' or Press 'CANCEL'")) {
+                
+                var url = "../api/reject_lead";
+                var postData = { 
+                              lead_id: $(this).data('leadid')
+                           };
+
+                $.post(url, postData, function(o){
+                   if(o.result == 1) {
+                       Display.warning(o.output);
+                       location.reload();
+                   }
+            },'json');  
+
+
+
+            }
+              return false;
+        });
+
 
 
         //---------------------------------------------------------------------------

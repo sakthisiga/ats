@@ -61,7 +61,7 @@ var Template = function() {
             output += '<input type="text" class="form-control input-sm"  id="name1" name="name1" value="'+ obj.user + '" disabled="true">';
             output += '</td></tr>'
 
-            output += '<tr><td></td><td><input type= "submit" class="btn btn-danger btn-sm pull-right ld_btn" type="button" style="display: none;" value="Update"></td></tr>';
+            output += '<tr><td></td><td><input type= "submit" class="btn btn-success btn-sm pull-right ld_btn" type="button" style="display: none;" value="Update"></td></tr>';
             output += '</table>';
             output += '</div></div>';
 
