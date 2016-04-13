@@ -650,9 +650,10 @@ class Api extends CI_Controller {
 		$this->output->set_content_type('application_json');
 
 		$lead_id = $this->input->post('lead_id');
+		$reject_reason = $this->input->post('reason');
 		
 		$this->db->where('lead_id', $lead_id);
-		$this->db->update('lead_info_tb', array('status' => 'Reject'));
+		$this->db->update('lead_info_tb', array('status' => 'Reject', 'reject_reason' => $reject_reason));
 		
 		$result = $this->db->affected_rows();
 
@@ -690,7 +691,7 @@ class Api extends CI_Controller {
 		}
 
 	}
-	
+
 
 // Function : Update Lead Information
 	

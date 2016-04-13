@@ -121,7 +121,7 @@ $("body").on('click', '.lead_id', function(e) {
           output += '<div class="pull-right box-tools">';
           output += '<button class="btn btn-default btn-sm" data-widget="collapse" data-toggle="tooltip" title="Minimize"><i class="fa fa-minus"></i></button>';
           output += '<button class="close_lead btn btn-default btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button></div>';
-          output += '<h3 class="box-title"><b>Lead: LD' + o.data[0].lead_id + ' | ' + o.data[0].name_1 + ' | ' +o.data[0].contact_1+ '</b></h3>';
+          output += '<h3 class="box-title"><b>LD' + o.data[0].lead_id + '</b></h3>';
           output += '</div>';
           output += '<div class="box-body">';
 
@@ -368,22 +368,26 @@ $("body").on('click', '.lead_id', function(e) {
         $(document).on("click", ".lead_reject", function () {
             e.preventDefault();
             if (confirm("If you are sure, Press 'OK' or Press 'CANCEL'")) {
-                
-                var url = "../api/reject_lead";
-                var postData = { 
-                              lead_id: $(this).data('leadid')
-                           };
+                reason = prompt("Reason for Rejection:","");
+                if(reason)
+                {
+                          var url = "../api/reject_lead";
+                          var postData = { 
+                                        lead_id: $(this).data('leadid'),
+                                        reason: reason
+                                     };
 
-                $.post(url, postData, function(o){
-                   if(o.result == 1) {
-                       Display.warning(o.output);
-                       location.reload();
-                   }
-            },'json');  
-
-
-
+                          $.post(url, postData, function(o){
+                             if(o.result == 1) {
+                                 Display.warning(o.output);
+                                 location.reload();
+                             }
+                      },'json');  
+              }
+              else
+                return false;
             }
+            else
               return false;
         });
 
@@ -411,14 +415,6 @@ $("body").on('click', '.lead_id', function(e) {
             else
               return false;
         });
-
-
-         //Flat red color scheme for iCheck
-                $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-                    checkboxClass: 'icheckbox_flat-red',
-                    radioClass: 'iradio_flat-red'
-                });
-                
 
         //---------------------------------------------------------------------------
 
