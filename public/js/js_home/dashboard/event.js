@@ -227,6 +227,9 @@ $("body").on('click', '.lead_id', function(e) {
             $.post(url, postData, function(o){
                if(o.result == 1) {
                    Display.success(o.output);
+                    $(".ld_txt").prop('disabled', true);
+                    $(".ld_btn").hide();
+                    $( "#lead_edit" ).prop( "checked", false );
                }
                else if(o.result == 2)
                  {
@@ -405,11 +408,17 @@ $("body").on('click', '.lead_id', function(e) {
 
 
             }
+            else
               return false;
         });
 
 
-
+         //Flat red color scheme for iCheck
+                $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+                    checkboxClass: 'icheckbox_flat-red',
+                    radioClass: 'iradio_flat-red'
+                });
+                
 
         //---------------------------------------------------------------------------
 

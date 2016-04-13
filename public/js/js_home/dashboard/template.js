@@ -17,7 +17,7 @@ var Template = function() {
             output += '<table class="table table-condensed lead_info_tbl">';
             output += '<tr><th><u>Lead_Details</u></th>';
                 if(group == 1)
-            output += '<th><input type="checkbox" class="minimal" id="lead_edit"></th>';
+            output += '<th><input type="checkbox" class="minimal-red" id="lead_edit"><input type= "submit" class="btn btn-success btn-sm pull-right ld_btn" type="button" style="display: none;" value="Update"></th>';
             output += '</tr>';
 
             output += '<tr><td>Date</td><td>';
@@ -61,7 +61,7 @@ var Template = function() {
             output += '<input type="text" class="form-control input-sm"  id="name1" name="name1" value="'+ obj.user + '" disabled="true">';
             output += '</td></tr>'
 
-            output += '<tr><td></td><td><input type= "submit" class="btn btn-success btn-sm pull-right ld_btn" type="button" style="display: none;" value="Update"></td></tr>';
+            output += '<tr><td></td><td></td></tr>';
             output += '</table>';
             output += '</div></div>';
 
@@ -149,7 +149,7 @@ var Template = function() {
             var output = '';
                 output += '<form action="#" method="post">';
                 output += '<div class="col-lg-2"><div class="well well-lg no-padding">';
-                output += '<table class="table table-condensed incorporation_tbl"><tr><th><u>Incorporation_Details</u></th>';
+                output += '<table class="table table-condensed incorporation_tbl"><tr><th><u>ROC_Details</u></th>';
                     if(grp == 1)
                 output += '<th><input type="checkbox" id="company_edit"></i></th>';
                 output += '</tr>';
