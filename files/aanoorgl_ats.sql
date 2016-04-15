@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2016 at 09:28 PM
+-- Generation Time: Apr 16, 2016 at 12:06 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.5.33
 
@@ -59,21 +59,6 @@ CREATE TABLE `ags_legal_jobs_tb` (
   `alj_consultation` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `ags_legal_jobs_tb`
---
-
-INSERT INTO `ags_legal_jobs_tb` (`ags_legal_jobs_id`, `lead_id`, `trademark_registration`, `trademark_queries_reply`, `copyright`, `patent_right`, `alj_consultation`) VALUES
-(1, 0000000001, NULL, 'Y', 'Y', NULL, NULL),
-(2, 0000000003, NULL, 'Y', NULL, NULL, NULL),
-(3, 0000000004, NULL, 'Y', NULL, NULL, NULL),
-(4, 0000000010, NULL, NULL, 'Y', NULL, NULL),
-(5, 0000000011, NULL, NULL, NULL, 'Y', NULL),
-(6, 0000000012, NULL, 'Y', NULL, NULL, NULL),
-(7, 0000000018, NULL, NULL, 'Y', NULL, NULL),
-(8, 0000000019, NULL, 'Y', NULL, NULL, NULL),
-(9, 0000000020, NULL, 'Y', NULL, NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -121,17 +106,6 @@ CREATE TABLE `ags_reg_jobs_tb` (
   `partnership_deed` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `ags_reg_jobs_tb`
---
-
-INSERT INTO `ags_reg_jobs_tb` (`ags_reg_jobs_id`, `lead_id`, `sales_tax_registration`, `service_tax_registration`, `prof_tax_registration`, `msme_registration`, `food_license`, `fire_license`, `ie_code`, `lease_deed`, `partnership_deed`) VALUES
-(1, 0000000001, NULL, NULL, 'Y', NULL, NULL, NULL, 'Y', NULL, NULL),
-(2, 0000000002, NULL, 'Y', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 0000000003, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Y'),
-(5, 0000000004, NULL, NULL, NULL, NULL, NULL, NULL, 'Y', NULL, NULL),
-(6, 0000000007, NULL, NULL, NULL, NULL, NULL, NULL, 'Y', NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -173,20 +147,6 @@ CREATE TABLE `audit_jobs_tb` (
   `ajb_consultation` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `audit_jobs_tb`
---
-
-INSERT INTO `audit_jobs_tb` (`audit_jobs_id`, `lead_id`, `sales_tax_filing`, `service_tax_filing`, `prof_tax_filing`, `tds_filing`, `it_filing`, `ajb_consultation`) VALUES
-(1, 0000000001, 'Y', NULL, 'Y', NULL, NULL, NULL),
-(2, 0000000002, NULL, 'Y', NULL, NULL, NULL, NULL),
-(3, 0000000004, 'Y', NULL, NULL, NULL, NULL, NULL),
-(4, 0000000005, NULL, NULL, NULL, 'Y', NULL, NULL),
-(5, 0000000008, NULL, NULL, 'Y', NULL, NULL, NULL),
-(7, 0000000009, NULL, NULL, NULL, 'Y', NULL, NULL),
-(8, 0000000010, NULL, NULL, 'Y', NULL, NULL, NULL),
-(9, 0000000017, NULL, NULL, 'Y', NULL, NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -210,14 +170,6 @@ CREATE TABLE `client_tb` (
   `fileloc` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `client_tb`
---
-
-INSERT INTO `client_tb` (`client_id`, `date`, `cname`, `type`, `cperson`, `cnumber`, `email`, `address`, `tin`, `cst`, `pan`, `vatuser`, `vatpass`, `fileloc`) VALUES
-(0000001, '1970-01-01', 'sraj', 'LIMITED', 'sdfd', '256', 'subaraj@aanoorglobal.com', 'dfdada', '98765432111', '69857412', 'afdad', 'fddfd', 'adfa', 'afddad'),
-(0000002, '1970-01-01', 'subavalar', 'PVT LTD', 'sdfd', '9876543211', 'gssubaraj@gmail.com', 'safdad', '69875412', '987654321', 'aclfsc1235', 'adad', 'adfdfdf', 'dfd');
-
 -- --------------------------------------------------------
 
 --
@@ -237,23 +189,6 @@ CREATE TABLE `incorporation_tb` (
   `roc_compliances` varchar(5) DEFAULT NULL,
   `alteration_of_directors` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `incorporation_tb`
---
-
-INSERT INTO `incorporation_tb` (`incorporation_id`, `lead_id`, `new_pvt_company`, `new_opc_company`, `new_llp_company`, `new_trust`, `alteration_of_capital`, `lib_consultation`, `address_change`, `roc_compliances`, `alteration_of_directors`) VALUES
-(1, 0000000001, 'Y', NULL, 'Y', NULL, 'Y', NULL, 'Y', NULL, NULL),
-(2, 0000000003, NULL, NULL, NULL, NULL, 'Y', NULL, NULL, NULL, NULL),
-(3, 0000000004, NULL, NULL, NULL, NULL, 'Y', NULL, NULL, NULL, NULL),
-(4, 0000000005, 'Y', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(5, 0000000006, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Y'),
-(6, 0000000007, NULL, NULL, 'Y', NULL, NULL, NULL, NULL, NULL, NULL),
-(7, 0000000009, NULL, NULL, 'Y', NULL, NULL, NULL, NULL, NULL, NULL),
-(8, 0000000013, NULL, NULL, NULL, NULL, NULL, NULL, 'Y', NULL, NULL),
-(9, 0000000014, NULL, NULL, NULL, NULL, NULL, NULL, 'Y', NULL, NULL),
-(10, 0000000015, NULL, NULL, NULL, NULL, NULL, NULL, 'Y', NULL, NULL),
-(11, 0000000016, NULL, NULL, NULL, NULL, 'Y', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -297,34 +232,11 @@ CREATE TABLE `lead_info_tb` (
   `contact_1` varchar(50) DEFAULT NULL,
   `contact_2` varchar(50) DEFAULT NULL,
   `email_1` varchar(50) DEFAULT NULL,
-  `email_2` varchar(50) DEFAULT NULL
+  `email_2` varchar(50) DEFAULT NULL,
+  `user` varchar(50) NOT NULL,
+  `status` varchar(25) NOT NULL,
+  `reject_reason` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `lead_info_tb`
---
-
-INSERT INTO `lead_info_tb` (`date`, `lead_id`, `source`, `name_1`, `name_2`, `contact_1`, `contact_2`, `email_1`, `email_2`) VALUES
-('2016-01-26', 0000000001, 'Just Dial', 'sakthivel deivasigamani', '', 'Anitha Karunakaran', '', 'sakthisiga@gmail.com', ''),
-('2016-01-26', 0000000002, 'Just Dial', 'Sakthivel Deivasigamani', '', 'Anitha Karunakaran', '', 'sakthisiga@gmail.com', ''),
-('2016-01-26', 0000000003, 'Just Dial', 'Thirumurugan Samynathan', '', 'Anitha Karunakaran', '', 'sakthisiga@gmail.com', ''),
-('2016-01-26', 0000000004, 'Just Dial', 'Sakthivel Deivasigamani', '', 'John Hill', '', 'sakthisiga@gmail.com', ''),
-('2016-01-28', 0000000005, 'Just Dial', 'subaraj', 'sathish', '9942655566', '1234567890', 'gssubaraj@gmail.com', 'subaraj@aanoorglobal.com'),
-('2016-01-28', 0000000006, 'Just Dial', 'Samynathan', '', 'Samynathan', '', 'samy@nathan.com', ''),
-('2016-01-29', 0000000007, 'Just Dial', 'Sakthivel Deivasigamani', '', 'sakthi', '', 'sakthisiga@gmail.com', ''),
-('2016-01-30', 0000000008, 'Just Dial', 'Manikandan', '', 'Mani', '', 'mani@mani.com', ''),
-('2016-02-04', 0000000009, 'Just Dial', 'Sakthivel Deivasigamani', '', 'Sakthivel deivasigamani', '', 'sakthisiga@gmail.com', ''),
-('2016-02-13', 0000000010, 'Just Dial', 'Sakthivel Deivasigamani', '', 'Sakthivel deivasigamani', '', 'samy@nathan.com', ''),
-('2016-02-22', 0000000011, 'Just Dial', 'Sakthivel Deivasigamani', '', 'John Hill', '', 'sakthisiga@gmail.com', ''),
-('2016-03-18', 0000000012, 'Just Dial', 'Sakthivel', '', 'sakthi', '', 'sakthi@sakthi.com', ''),
-('2016-03-18', 0000000013, 'Just Dial', 'Kumar', '', 'Kumar', '', 'kumar@kumar.com', ''),
-('2016-03-18', 0000000014, 'Just Dial', 'Kumar', '', 'Kumar', '', 'kumar@kumar.com', ''),
-('2016-03-23', 0000000015, 'Just Dial', 'Sakthivel Deivasigamani', '', 'Sakthivel Deivasigamani', '', 'sakthisiga@gmail.com', 'sakthisiga@gmail.com'),
-('2016-03-23', 0000000016, 'Just Dial', 'Mani', '', 'Mani', '', 'mani@mani.com', ''),
-('2016-03-23', 0000000017, 'Just Dial', 'Mohan', '', 'Mohan', '', 'mohan@mohan.com', ''),
-('2016-03-24', 0000000018, 'Just Dial', 'Sakthivel Deivasigamani', 'Sakthivel Deivasigamani', 'Sakthivel Deivasigamani', '', 'sakthisiga@gmail.com', 'sakthisiga@gmail.com'),
-('2016-03-24', 0000000019, 'Just Dial', 'Sakthivel Deivasigamani', 'Sakthivel Deivasigamani', 'Sakthivel Deivasigamani', '', 'sakthisiga@gmail.com', 'sakthisiga@gmail.com'),
-('2016-03-24', 0000000020, 'Just Dial', 'Sakthivel Deivasigamani', 'Sakthivel Deivasigamani', 'Sakthivel Deivasigamani', '', 'sakthisiga@gmail.com', 'sakthisiga@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -366,17 +278,6 @@ CREATE TABLE `tech_jobs_tb` (
   `visiting_card` varchar(5) DEFAULT NULL,
   `tj_consultation` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tech_jobs_tb`
---
-
-INSERT INTO `tech_jobs_tb` (`tech_jobs_id`, `lead_id`, `website`, `mail`, `logo`, `letter_pad`, `visiting_card`, `tj_consultation`) VALUES
-(1, 0000000001, NULL, NULL, 'Y', NULL, NULL, NULL),
-(2, 0000000002, NULL, NULL, 'Y', NULL, NULL, NULL),
-(3, 0000000004, NULL, NULL, NULL, NULL, NULL, 'Y'),
-(4, 0000000005, 'Y', NULL, NULL, NULL, 'Y', NULL),
-(5, 0000000006, NULL, NULL, NULL, NULL, NULL, 'Y');
 
 -- --------------------------------------------------------
 
@@ -494,7 +395,7 @@ ALTER TABLE `user_tb`
 -- AUTO_INCREMENT for table `ags_legal_jobs_tb`
 --
 ALTER TABLE `ags_legal_jobs_tb`
-  MODIFY `ags_legal_jobs_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ags_legal_jobs_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `ags_reg_jobs_tb`
 --
@@ -504,27 +405,27 @@ ALTER TABLE `ags_reg_jobs_tb`
 -- AUTO_INCREMENT for table `audit_jobs_tb`
 --
 ALTER TABLE `audit_jobs_tb`
-  MODIFY `audit_jobs_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `audit_jobs_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `client_tb`
 --
 ALTER TABLE `client_tb`
-  MODIFY `client_id` int(7) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `client_id` int(7) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 --
 -- AUTO_INCREMENT for table `incorporation_tb`
 --
 ALTER TABLE `incorporation_tb`
-  MODIFY `incorporation_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `incorporation_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `lead_info_tb`
 --
 ALTER TABLE `lead_info_tb`
-  MODIFY `lead_id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `lead_id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `tech_jobs_tb`
 --
 ALTER TABLE `tech_jobs_tb`
-  MODIFY `tech_jobs_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `tech_jobs_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `type_tb`
 --
