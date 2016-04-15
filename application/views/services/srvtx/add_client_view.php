@@ -19,7 +19,7 @@
             
              <!-- SELECT2 EXAMPLE -->
           <div class="box box-success">
-          <div id="notify"><!-- Error/Success/Warning Notifications go here.. --></div>	
+          
             <div class="box-header with-border">
               <h3 class="box-title">Client Registration</h3>
               <div class="box-tools pull-right">
@@ -27,6 +27,7 @@
               </div>
             </div><!-- /.box-header -->
             <div class="box-body">
+            <div id="notify"><!-- Error/Success/Warning Notifications go here.. --></div> 
            <form id="create_client" class="form-horizontal" method="post" action="<?=site_url('api/add_client')?>">
               <div class="row">
               
