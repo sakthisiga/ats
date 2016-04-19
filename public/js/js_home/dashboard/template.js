@@ -12,6 +12,9 @@ var Template = function() {
       // ------------------------------------------------------------------------
     
     this.get_lead_info = function(obj, group) {
+        var givenDate = new Date(obj.date);
+        var date = (givenDate.getDate() + 1) + '-' + (givenDate.getMonth() + 1) + '-' +  givenDate.getFullYear();
+
         var output = '<div class="col-lg-3"><div class="well well-lg no-padding">';
             output += '<form id="update_lead" method="post" action="../api/update_lead">';
             output += '<table class="table table-condensed lead_info_tbl">';
@@ -21,7 +24,7 @@ var Template = function() {
             output += '</tr>';
 
             output += '<tr><td>Date</td><td>';
-            output += '<input type="text" class="form-control input-sm"  id="date" name="date" value="'+ obj.date + '" disabled="true">';
+            output += '<input type="text" class="form-control input-sm"  id="date" name="date" value="'+ date + '" disabled="true">';
             output += '</td></tr>'
 
             output += '<tr><td>Source</td><td>';
@@ -29,7 +32,7 @@ var Template = function() {
             output += '</td></tr>'
 
             output += '<tr><td>Lead ID</td><td>';
-            output += '<input type="text" class="form-control input-sm"  id="leadid" name="leadid" value="LD'+ obj.lead_id+ '" readonly="readonly">';
+            output += '<input type="text" class="form-control input-sm"  id="leadid" name="leadid" value="LD'+ obj.lead_id+ '" readonly="true">';
             output += '</td></tr>'
 
             

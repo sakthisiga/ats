@@ -145,7 +145,7 @@
                            foreach($leads as $row) : ?>
                             <tr>
                           
-                              <td nowrap> <?php echo $row->date; ?> </td>
+                              <td nowrap> <?php echo date("jS F Y", strtotime($row->date)); ?> </td>
                               <td nowrap> <a href="../api/edit_lead_info" data-id="<?=$row->lid; ?>" class="open-AddBookDialog lead_id"><?php echo "LD".$row->lid; ?>
                                  </a>
                               </td>
